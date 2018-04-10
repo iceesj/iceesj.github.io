@@ -80,6 +80,63 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2013/12/28/2013-12-28-DDisplaying-Images-with-UIImageView/" title="iOS7 UIImageView" itemprop="url">iOS7 UIImageView</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2013-12-28T14:58:00.000Z" itemprop="datePublished"> Published 2013-12-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>####iOS7 Programming Cookbook 第一章学习笔记 UIImageView</p>
+<p>#####Displaying Images with UIImageView</p>
+<p>#####ViewController.m<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">//创建image</span></span><br><span class="line">    <span class="built_in">UIImage</span> *macBookAir = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"MacBookAir"</span>];</span><br><span class="line">    <span class="comment">//bounds</span></span><br><span class="line">    <span class="keyword">self</span>.myImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:<span class="keyword">self</span>.view.bounds];</span><br><span class="line">    <span class="comment">//保持长宽比的大小选择规模内容视图,任何剩余的视图区域的边界是透明的。</span></span><br><span class="line">    <span class="keyword">self</span>.myImageView.contentMode = <span class="built_in">UIViewContentModeScaleAspectFit</span>;</span><br><span class="line">    <span class="comment">//image设置成macBookAir</span></span><br><span class="line">    <span class="keyword">self</span>.myImageView.image = macBookAir;</span><br><span class="line">    <span class="comment">//剧中</span></span><br><span class="line">    <span class="keyword">self</span>.myImageView.center = <span class="keyword">self</span>.view.center;</span><br><span class="line">    <span class="comment">//添加到view</span></span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.myImageView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2013/12/28/2013-12-28-DDisplaying-Images-with-UIImageView/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/UIImageView/">UIImageView</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2013/12/28/2013-12-28-DDisplaying-Images-with-UIImageView/#comments" class="ds-thread-count comments-count-link" data-thread-key="2013/12/28/2013-12-28-DDisplaying-Images-with-UIImageView/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2013/12/28/2013-12-28-Displaying-an-Image-on-a-Navigation-Bar/" title="iOS7 UINavigationController" itemprop="url">iOS7 UINavigationController</a>
   </h1>
   <p class="article-time">
@@ -592,63 +649,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2013/12/22/2013-12-22-accepting-user-text-input-with-uitextfield/" title="iOS7 UITextField" itemprop="url">iOS7 UITextField</a>
-  </h1>
-  <p class="article-time">
-    <time datetime="2013-12-22T09:00:00.000Z" itemprop="datePublished"> Published 2013-12-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>####iOS7 Programming Cookbook 第一章学习笔记 UITextField</p>
-<p>#####Accepting User Text Input with UITextField</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">   - (<span class="keyword">void</span>)viewDidLoad&#123;</span><br><span class="line">   [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//初始化坐标</span></span><br><span class="line">   <span class="built_in">CGRect</span> textFieldFrame = <span class="built_in">CGRectMake</span>(<span class="number">38.0</span>f,</span><br><span class="line">                                      <span class="number">30.0</span>f,</span><br><span class="line">                                      <span class="number">240.0</span>f,</span><br><span class="line">                                      <span class="number">31.0</span>f);</span><br><span class="line"><span class="comment">//初始化myTextField</span></span><br><span class="line">   <span class="keyword">self</span>.myTextField = [[<span class="built_in">UITextField</span> alloc]</span><br><span class="line">                       initWithFrame:textFieldFrame];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//初始化myTextField 键盘类型为带小数点的数字键盘</span></span><br><span class="line">   <span class="keyword">self</span>.myTextField.keyboardType = <span class="built_in">UIKeyboardTypeDecimalPad</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//显示一个rounded-style边框的文本字段</span></span><br><span class="line">   <span class="keyword">self</span>.myTextField.borderStyle = <span class="built_in">UITextBorderStyleRoundedRect</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//内容垂直对齐</span></span><br><span class="line">   <span class="keyword">self</span>.myTextField.contentVerticalAlignment = <span class="built_in">UIControlContentVerticalAlignmentCenter</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//沿着左边缘对齐文本</span></span><br><span class="line">   <span class="keyword">self</span>.myTextField.textAlignment = <span class="built_in">NSTextAlignmentLeft</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//占位符</span></span><br><span class="line">   <span class="keyword">self</span>.myTextField.placeholder = <span class="string">@"Enter amount here."</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//添加到view中</span></span><br><span class="line">   [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.myTextField];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//货币标签label 初始化</span></span><br><span class="line">   <span class="built_in">UILabel</span> *currencyLabel = [[<span class="built_in">UILabel</span> alloc] initWithFrame:<span class="built_in">CGRectZero</span>];</span><br><span class="line">   <span class="comment">//货币符号</span></span><br><span class="line">   currencyLabel.text = [[[<span class="built_in">NSNumberFormatter</span> alloc] init] currencySymbol];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//适应字体大小</span></span><br><span class="line">   currencyLabel.font = <span class="keyword">self</span>.myTextField.font;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//调整边界为当前视图大小</span></span><br><span class="line">   [currencyLabel sizeToFit];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//左边试图显示 货币符号</span></span><br><span class="line">   <span class="keyword">self</span>.myTextField.leftView = currencyLabel;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//默认为UITextFieldViewModeNever，设置左视图显示</span></span><br><span class="line">   <span class="keyword">self</span>.myTextField.leftViewMode = <span class="built_in">UITextFieldViewModeAlways</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2013/12/22/2013-12-22-accepting-user-text-input-with-uitextfield/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/UITextField/">UITextField</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2013/12/22/2013-12-22-accepting-user-text-input-with-uitextfield/#comments" class="ds-thread-count comments-count-link" data-thread-key="2013/12/22/2013-12-22-accepting-user-text-input-with-uitextfield/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/7/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next<span></span></a>
@@ -853,11 +853,11 @@
 		  
 		
 		  
-			<li><a href="/categories/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
+			<li><a href="/categories/Block/NSThread/GCD/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Block/NSThread/GCD/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
+			<li><a href="/categories/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
 		  
 		
 		  
@@ -881,11 +881,11 @@
 		  
 		
 		  
-			<li><a href="/categories/UITabBarController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
+			<li><a href="/categories/UINavigationController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/UINavigationController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
+			<li><a href="/categories/UITabBarController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
 		  
 		
 		  
@@ -929,11 +929,11 @@
 		  
 		
 		  
-			<li><a href="/categories/UIBarButtonItem/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
+			<li><a href="/categories/NSLayoutConstraint/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/NSLayoutConstraint/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
+			<li><a href="/categories/UIBarButtonItem/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
 		  
 		
 		  
@@ -949,11 +949,11 @@
 		  
 		
 		  
-			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
+			<li><a href="/categories/UIGravityBehavior/UIDynamicItemBehavior/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/UIGravityBehavior/UIDynamicItemBehavior/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
+			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
 		  
 		
 		  
@@ -973,11 +973,11 @@
 		  
 		
 		  
-			<li><a href="/categories/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>3</sup></a></li>
+			<li><a href="/categories/UIAttachmentBehavior/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/UIAttachmentBehavior/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>1</sup></a></li>
+			<li><a href="/categories/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>3</sup></a></li>
 		  
 		
 		  
@@ -989,7 +989,7 @@
 		  
 		
 		  
-			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
+			<li><a href="/categories/UIDynamicAnimator/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
 		  
 		
 		  
@@ -997,7 +997,7 @@
 		  
 		
 		  
-			<li><a href="/categories/UIDynamicAnimator/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
+			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
 		  
 		
 		  
@@ -1009,15 +1009,15 @@
 		  
 		
 		  
+			<li><a href="/categories/iOS7/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/UITabBarController/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
 		  
 		
 		  
 			<li><a href="/categories/UINavigationController/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS7/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
 		  
 		
 		  
@@ -1326,23 +1326,39 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/tel/" title="tel">tel<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Array/" title="Array">Array<sup>1</sup></a></li>
+				<li><a href="/tags/preact/" title="preact">preact<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Dictionary/" title="Dictionary">Dictionary<sup>1</sup></a></li>
+				<li><a href="/tags/mobx/" title="mobx">mobx<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li>
+				<li><a href="/tags/inject/" title="inject">inject<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/字典/" title="字典">字典<sup>1</sup></a></li>
+				<li><a href="/tags/connect/" title="connect">connect<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/wkwebview/" title="wkwebview">wkwebview<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/uiwebview/" title="uiwebview">uiwebview<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
 			
 		
 		</ul>

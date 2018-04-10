@@ -80,6 +80,62 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2014/07/11/2014-7-11-Swift-Closures/" title="《浅入浅出Swift》Closures 闭包" itemprop="url">《浅入浅出Swift》Closures 闭包</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2014-07-11T15:02:00.000Z" itemprop="datePublished"> Published 2014-07-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>####Closures</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//Function中的全局函数和嵌套函数，全是闭包的特殊形式</span></span><br><span class="line">        <span class="comment">//所谓闭包表达式，就是一个不带函数名的嵌套函数，书写方式比较特别</span></span><br><span class="line">        <span class="comment">//Global functions are closures that have a name and do not capture any values.</span></span><br><span class="line"><span class="comment">//        Nested functions are closures that have a name and can capture values from their enclosing function.</span></span><br><span class="line"><span class="comment">//        Closure expressions are unnamed closures written in a lightweight syntax that can capture values from their surrounding context.</span></span><br><span class="line">        <span class="comment">//闭包的“优化”包含：</span></span><br><span class="line">        <span class="comment">//能够根据上下文推理出来的参数 以及函数的返回值类型</span></span><br><span class="line">        <span class="comment">//return关键字</span></span><br><span class="line">        <span class="comment">//变量名</span></span><br><span class="line">        <span class="comment">//Trailing closure syntax</span></span><br><span class="line">        let names = [<span class="string">"Chris"</span>,<span class="string">"Alex"</span>,<span class="string">"Ewa"</span>,<span class="string">"Barry"</span>,<span class="string">"Daniella"</span>]</span><br><span class="line">        func backwards(s1:String, s2:String) -&gt; Bool &#123;</span><br><span class="line">            <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">        &#125;</span><br><span class="line">        var reversed = sorted(names, backwards)</span><br><span class="line">        println(<span class="string">"reversed is equal to \(reversed)"</span>)</span><br><span class="line">        </span><br><span class="line"><span class="comment">//        Closure Expression Syntax</span></span><br><span class="line"><span class="comment">//        &#123;</span></span><br><span class="line"><span class="comment">//            (参数)-&gt;返回值类型 in 函数体</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">        reversed = sorted(names, &#123; (s1:String, s2:String) -&gt; Bool <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2&#125;)</span><br><span class="line">        <span class="comment">//Inferring Type From Context</span></span><br><span class="line">        reversed = sorted(names, &#123;s1, s2 <span class="keyword">in</span> <span class="keyword">return</span> s1&gt;s2&#125;)</span><br><span class="line">        <span class="comment">//Implicit Returns from Single-Expression Closures 从闭包隐士返回</span></span><br><span class="line">        reversed = sorted(names, &#123;s1, s2 <span class="keyword">in</span> s1 &gt; s2&#125;)</span><br><span class="line">        <span class="comment">//Shorthand Argument Names，对于inline的闭包</span></span><br><span class="line">        reversed = sorted(names, &#123;$<span class="number">0</span> &gt; $<span class="number">1</span>&#125;)</span><br><span class="line">        <span class="comment">//Operator Functions</span></span><br><span class="line">        reversed = sorted(names, &gt;)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//Trailing Closures</span></span><br><span class="line">        func someFunctionThatTakesAClosure(closure:() -&gt; () )&#123;</span><br><span class="line">            <span class="comment">//func body goes here</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// here's how you call this function without using a trailing closure:</span></span><br><span class="line">        someFunctionThatTakesAClosure(&#123;</span><br><span class="line">            <span class="comment">//空闭包 &#123;&#125;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        someFunctionThatTakesAClosure()&#123;&#125;<span class="comment">//如果闭包&#123;&#125; 内容很长，我们可以吧&#123;&#125;放在()的外面</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//reversed还可以这样写</span></span><br><span class="line">        reversed = sorted(names)&#123;$<span class="number">0</span> &gt; $<span class="number">1</span>&#125;</span><br><span class="line">        </span><br><span class="line">        let digitNames = [<span class="number">0</span>: <span class="string">"Zero"</span>, <span class="number">1</span>: <span class="string">"One"</span>, <span class="number">2</span>: <span class="string">"Two"</span>,   <span class="number">3</span>: <span class="string">"Three"</span>, <span class="number">4</span>: <span class="string">"Four"</span>,</span><br><span class="line">            <span class="number">5</span>: <span class="string">"Five"</span>, <span class="number">6</span>: <span class="string">"Six"</span>, <span class="number">7</span>: <span class="string">"Seven"</span>, <span class="number">8</span>: <span class="string">"Eight"</span>, <span class="number">9</span>: <span class="string">"Nine"</span>]</span><br><span class="line">        let numbers = [<span class="number">16</span>,<span class="number">58</span>,<span class="number">510</span>]</span><br><span class="line">        let strings = numbers.map()&#123;</span><br><span class="line">            <span class="comment">//参数number 返回值String in后函数体</span></span><br><span class="line">            (var number) -&gt; String <span class="keyword">in</span></span><br><span class="line">            var output = <span class="string">""</span></span><br><span class="line">            <span class="keyword">while</span> number &gt; <span class="number">0</span>&#123;</span><br><span class="line">                <span class="comment">//16大于0 58, 510</span></span><br><span class="line">                output = digitNames[number % <span class="number">10</span>]! + output</span><br><span class="line">                println(<span class="string">"output = \(output)"</span>)</span><br><span class="line">                number /= <span class="number">10</span> <span class="comment">// = 1, = 5, = 51, = 5</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> output</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//string is inferred to be of type [String]</span></span><br><span class="line">        <span class="comment">//["OneSix", "FiveEight", "FiveOneZero"]:</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//获取值，Capturing Values</span></span><br><span class="line">        <span class="comment">//闭包可以捕捉并保存它的外层函数的常量和变量</span></span><br><span class="line">        func makeIncrementor(forIncrement amount:Int)-&gt; ()-&gt;Int &#123;<span class="comment">//返回一个函数</span></span><br><span class="line">            var runningTotal = <span class="number">0</span></span><br><span class="line">            func incrementor ()-&gt; Int &#123;</span><br><span class="line">                runningTotal += amount</span><br><span class="line">                println(<span class="string">"return a value of \(runningTotal)"</span>)</span><br><span class="line">                <span class="keyword">return</span> runningTotal</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> incrementor</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//incrementor是一个嵌套函数，返回一个Int，它没有传入参数，而是使用makeIncrementor函数定义的一个runningTotal局部变量，当makeIncrementor，返回incrementor函数时，实际上返回了incrementor函数的一个复制出来的实体函数名，每次调用makeIncrementor的时候都会复制一个新的incrementor函数，正因为闭包可以保存它外层函数定义的常量和变量，所以当外层函数的作用域已不存在的时候，它依然可以使用那个常量或变量的值</span></span><br><span class="line">        let incrementByTen = makeIncrementor(forIncrement: <span class="number">10</span>)</span><br><span class="line">        incrementByTen()<span class="comment">//10</span></span><br><span class="line">        incrementByTen()<span class="comment">//20</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//闭包是引用类型，Closures Are Reference Types</span></span><br><span class="line">        let alsoIncrementByTen = incrementByTen</span><br><span class="line">        alsoIncrementByTen()<span class="comment">//30</span></span><br><span class="line">        <span class="comment">//没有调用makeIncrementor去复制一个新的函数，而是定义了一个常量alsoIncrementByTen被赋值成了incrementByTen</span></span><br><span class="line">        <span class="comment">//正因为闭包是引用类型，alsoIncrementByTen就是incrementByTen之前复制出来的函数的新引用而已。</span></span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2014/07/11/2014-7-11-Swift-Closures/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Swift/">Swift</a>►<a class="article-category-link" href="/categories/Swift/Closures/">Closures</a>►<a class="article-category-link" href="/categories/Swift/Closures/闭包/">闭包</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2014/07/11/2014-7-11-Swift-Closures/#comments" class="ds-thread-count comments-count-link" data-thread-key="2014/07/11/2014-7-11-Swift-Closures/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2014/07/10/2014-7-10-Swift-Function/" title="《浅入浅出Swift》Function 函数" itemprop="url">《浅入浅出Swift》Function 函数</a>
   </h1>
   <p class="article-time">
@@ -580,64 +636,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/05/30/2014-5-30-Chapter-12/" title="iOS7 Programming Cookbook 第十二章学习笔记" itemprop="url">iOS7 Programming Cookbook 第十二章学习笔记</a>
-  </h1>
-  <p class="article-time">
-    <time datetime="2014-05-30T08:00:00.000Z" itemprop="datePublished"> Published 2014-05-30</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>####Accessing the Music Library</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;MediaPlayer/MediaPlayer.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;AVFoundation/AVFoundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()&lt;<span class="title">MPMediaPickerControllerDelegate</span>,<span class="title">AVAudioPlayerDelegate</span>&gt;</span></span><br><span class="line"><span class="comment">//音乐播放界面</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">MPMusicPlayerController</span> *myMusicPlayer;</span><br><span class="line"><span class="comment">//挑选和播放</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIButton</span> *buttonPickAndPlay;</span><br><span class="line"><span class="comment">//停止播放</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIButton</span> *buttonStopPlaying;</span><br><span class="line"><span class="comment">//媒体采集vc</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">MPMediaPickerController</span> *mediaPicker;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>) musicPlayerStateChanged:(<span class="built_in">NSNotification</span> *)paramNotification&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"播放状态改变"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 得到播放状态 */</span></span><br><span class="line">    <span class="built_in">NSNumber</span> *stateAsObject = [paramNotification.userInfo objectForKey:<span class="string">@"MPMusicPlayerControllerPlaybackStateKey"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSInteger</span> state = [stateAsObject integerValue];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 根据state判断 */</span></span><br><span class="line">    <span class="keyword">switch</span> (state)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">MPMusicPlaybackStateStopped</span>:&#123;</span><br><span class="line">            <span class="comment">/* 媒体播放器已停止播放队列. */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">MPMusicPlaybackStatePlaying</span>:&#123;</span><br><span class="line">            <span class="comment">/* 更多处理能力的player */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">MPMusicPlaybackStatePaused</span>:&#123;</span><br><span class="line">            <span class="comment">/* player播放一下，你可以通过图形显示给用户*/</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">MPMusicPlaybackStateInterrupted</span>:&#123;</span><br><span class="line">            <span class="comment">/* 一个中断停止播放媒体列表 */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">MPMusicPlaybackStateSeekingForward</span>:&#123;</span><br><span class="line">            <span class="comment">/* 用户正在寻求队列中 */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">MPMusicPlaybackStateSeekingBackward</span>:&#123;</span><br><span class="line">            <span class="comment">/* 用户正在寻求向后队列 */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="comment">/* switch (State)&#123; */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>) nowPlayingItemIsChanged:(<span class="built_in">NSNotification</span> *)paramNotification&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Playing Item Is Changed"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *persistentID =[paramNotification.userInfo</span><br><span class="line">     objectForKey:<span class="string">@"MPMusicPlayerControllerNowPlayingItemPersistentIDKey"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Persistent ID = %@"</span>, persistentID);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>) volumeIsChanged:(<span class="built_in">NSNotification</span> *)paramNotification&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Volume Is Changed"</span>);</span><br><span class="line">    <span class="comment">/* The userInfo dictionary of this notification is normally empty */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//delegate modal 一个vc在一个父类vc</span></span><br><span class="line">- (<span class="keyword">void</span>) mediaPicker:(<span class="built_in">MPMediaPickerController</span> *)mediaPicker</span><br><span class="line">   didPickMediaItems:(<span class="built_in">MPMediaItemCollection</span> *)mediaItemCollection&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Media Picker returned"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 首先，创建了音乐播放器，让我们释放它 */</span></span><br><span class="line">    <span class="keyword">self</span>.myMusicPlayer = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">//创建</span></span><br><span class="line">    <span class="keyword">self</span>.myMusicPlayer = [[<span class="built_in">MPMusicPlayerController</span> alloc] init];</span><br><span class="line">    <span class="comment">//开始播放生成通知</span></span><br><span class="line">    [<span class="keyword">self</span>.myMusicPlayer beginGeneratingPlaybackNotifications];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* notificationcenter接受通知 */</span></span><br><span class="line">    <span class="comment">//通知相关的对象是音乐播放器的播放状态发生了变化</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(musicPlayerStateChanged:) name:<span class="built_in">MPMusicPlayerControllerPlaybackStateDidChangeNotification</span> object:<span class="keyword">self</span>.myMusicPlayer];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 　　播放得到通知。我们只会允许</span><br><span class="line">     　　我们的用户选择一个音乐文件 */</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter]addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(nowPlayingItemIsChanged:) name:<span class="built_in">MPMusicPlayerControllerNowPlayingItemDidChangeNotification</span> object:<span class="keyword">self</span>.myMusicPlayer];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 音乐播放器改变 */</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter]addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(volumeIsChanged:) name:<span class="built_in">MPMusicPlayerControllerVolumeDidChangeNotification</span> object:<span class="keyword">self</span>.myMusicPlayer];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 开始项目集合 */</span></span><br><span class="line">    [<span class="keyword">self</span>.myMusicPlayer setQueueWithItemCollection:mediaItemCollection];</span><br><span class="line">    [<span class="keyword">self</span>.myMusicPlayer play];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Finally dismiss the media picker controller */</span></span><br><span class="line">    [mediaPicker dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>) mediaPickerDidCancel:(<span class="built_in">MPMediaPickerController</span> *)mediaPicker&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* player 选择取消*/</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Media Picker was cancelled"</span>);</span><br><span class="line">    [mediaPicker dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>) stopPlayingAudio&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.myMusicPlayer != <span class="literal">nil</span>)&#123;</span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter]removeObserver:<span class="keyword">self</span> name:<span class="built_in">MPMusicPlayerControllerPlaybackStateDidChangeNotification</span> object:<span class="keyword">self</span>.myMusicPlayer];</span><br><span class="line"></span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span> name:<span class="built_in">MPMusicPlayerControllerNowPlayingItemDidChangeNotification</span> object:<span class="keyword">self</span>.myMusicPlayer];</span><br><span class="line"></span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter]removeObserver:<span class="keyword">self</span> name:<span class="built_in">MPMusicPlayerControllerVolumeDidChangeNotification</span> object:<span class="keyword">self</span>.myMusicPlayer];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span>.myMusicPlayer stop];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//显示媒体选择和音乐项目</span></span><br><span class="line">- (<span class="keyword">void</span>)displayMediaPickerAndPlayItem&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.mediaPicker =</span><br><span class="line">    [[<span class="built_in">MPMediaPickerController</span> alloc]</span><br><span class="line">     initWithMediaTypes:<span class="built_in">MPMediaTypeAnyAudio</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.mediaPicker != <span class="literal">nil</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Successfully instantiated a media picker."</span>);</span><br><span class="line">        <span class="keyword">self</span>.mediaPicker.delegate = <span class="keyword">self</span>;</span><br><span class="line">        <span class="keyword">self</span>.mediaPicker.allowsPickingMultipleItems = <span class="literal">YES</span>;</span><br><span class="line">        <span class="keyword">self</span>.mediaPicker.showsCloudItems = <span class="literal">YES</span>;</span><br><span class="line">        <span class="keyword">self</span>.mediaPicker.prompt = <span class="string">@"Pick a song please..."</span>;</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.mediaPicker.view];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span>.navigationController presentViewController:<span class="keyword">self</span>.mediaPicker</span><br><span class="line">                                                animated:<span class="literal">YES</span></span><br><span class="line">                                              completion:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Could not instantiate a media picker."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">//title</span></span><br><span class="line">    <span class="keyword">self</span>.title = <span class="string">@"Media picker..."</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.buttonPickAndPlay = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeSystem</span>];</span><br><span class="line">    <span class="keyword">self</span>.buttonPickAndPlay.frame = <span class="built_in">CGRectMake</span>(<span class="number">0.0</span>f,<span class="number">0.0</span>f,<span class="number">200</span>,<span class="number">37.0</span>f);</span><br><span class="line">    <span class="keyword">self</span>.buttonPickAndPlay.center = <span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.view.center.x,</span><br><span class="line">                                                <span class="keyword">self</span>.view.center.y - <span class="number">50</span>);</span><br><span class="line">    [<span class="keyword">self</span>.buttonPickAndPlay setTitle:<span class="string">@"Pick and Play"</span> forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [<span class="keyword">self</span>.buttonPickAndPlay addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(displayMediaPickerAndPlayItem) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.buttonPickAndPlay];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.buttonStopPlaying = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeSystem</span>];</span><br><span class="line">    <span class="keyword">self</span>.buttonStopPlaying.frame = <span class="built_in">CGRectMake</span>(<span class="number">0.0</span>f,<span class="number">0.0</span>f,<span class="number">200</span>,<span class="number">37.0</span>f);</span><br><span class="line">    <span class="keyword">self</span>.buttonStopPlaying.center = <span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.view.center.x, <span class="keyword">self</span>.view.center.y + <span class="number">50</span>);</span><br><span class="line">    [<span class="keyword">self</span>.buttonStopPlaying setTitle:<span class="string">@"Stop Playing"</span></span><br><span class="line">                            forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [<span class="keyword">self</span>.buttonStopPlaying addTarget:<span class="keyword">self</span></span><br><span class="line">                               action:<span class="keyword">@selector</span>(stopPlayingAudio)</span><br><span class="line">                     forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.buttonStopPlaying];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.amazon.com/iOS-Programming-Cookbook-Vandad-Nahavandipoor/dp/1449372422/ref=sr_1_1?ie=UTF8&amp;qid=1387715852&amp;sr=8-1&amp;keywords=iOS7+Programming+Cookbook" target="_blank" rel="external">O’Reilly Shop iOS 7 Programming Cookbook</a></li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/AVFoundation/">AVFoundation</a>►<a class="article-category-link" href="/categories/AVFoundation/NSNotification/">NSNotification</a>►<a class="article-category-link" href="/categories/AVFoundation/NSNotification/MPMediaPickerController/">MPMediaPickerController</a>►<a class="article-category-link" href="/categories/AVFoundation/NSNotification/MPMediaPickerController/MPMusicPlayerController/">MPMusicPlayerController</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2014/05/30/2014-5-30-Chapter-12/#comments" class="ds-thread-count comments-count-link" data-thread-key="2014/05/30/2014-5-30-Chapter-12/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
@@ -842,11 +840,11 @@
 		  
 		
 		  
-			<li><a href="/categories/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
+			<li><a href="/categories/Block/NSThread/GCD/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Block/NSThread/GCD/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
+			<li><a href="/categories/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
 		  
 		
 		  
@@ -870,11 +868,11 @@
 		  
 		
 		  
-			<li><a href="/categories/UITabBarController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
+			<li><a href="/categories/UINavigationController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/UINavigationController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
+			<li><a href="/categories/UITabBarController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
 		  
 		
 		  
@@ -918,11 +916,11 @@
 		  
 		
 		  
-			<li><a href="/categories/UIBarButtonItem/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
+			<li><a href="/categories/NSLayoutConstraint/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/NSLayoutConstraint/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
+			<li><a href="/categories/UIBarButtonItem/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
 		  
 		
 		  
@@ -938,11 +936,11 @@
 		  
 		
 		  
-			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
+			<li><a href="/categories/UIGravityBehavior/UIDynamicItemBehavior/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/UIGravityBehavior/UIDynamicItemBehavior/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
+			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
 		  
 		
 		  
@@ -962,11 +960,11 @@
 		  
 		
 		  
-			<li><a href="/categories/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>3</sup></a></li>
+			<li><a href="/categories/UIAttachmentBehavior/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/UIAttachmentBehavior/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>1</sup></a></li>
+			<li><a href="/categories/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>3</sup></a></li>
 		  
 		
 		  
@@ -978,7 +976,7 @@
 		  
 		
 		  
-			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
+			<li><a href="/categories/UIDynamicAnimator/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
 		  
 		
 		  
@@ -986,7 +984,7 @@
 		  
 		
 		  
-			<li><a href="/categories/UIDynamicAnimator/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
+			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
 		  
 		
 		  
@@ -998,15 +996,15 @@
 		  
 		
 		  
+			<li><a href="/categories/iOS7/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/UITabBarController/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
 		  
 		
 		  
 			<li><a href="/categories/UINavigationController/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS7/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
 		  
 		
 		  
@@ -1315,23 +1313,39 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/tel/" title="tel">tel<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Array/" title="Array">Array<sup>1</sup></a></li>
+				<li><a href="/tags/preact/" title="preact">preact<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Dictionary/" title="Dictionary">Dictionary<sup>1</sup></a></li>
+				<li><a href="/tags/mobx/" title="mobx">mobx<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/数组/" title="数组">数组<sup>1</sup></a></li>
+				<li><a href="/tags/inject/" title="inject">inject<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/字典/" title="字典">字典<sup>1</sup></a></li>
+				<li><a href="/tags/connect/" title="connect">connect<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/wkwebview/" title="wkwebview">wkwebview<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/uiwebview/" title="uiwebview">uiwebview<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
 			
 		
 		</ul>
