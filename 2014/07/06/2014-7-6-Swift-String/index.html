@@ -1,20 +1,90 @@
+<!DOCTYPE html>
 
- <!DOCTYPE HTML>
-<html >
-<head>
-  <meta charset="UTF-8">
+
+
   
-    <title>《浅入浅出Swift》String 字符和字符串 | iceesj</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
 
-    
-    <meta name="description" content="####String
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="####String
 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647super.viewDidLoad()self.navigationItem.title = &quot;字符和字符串&quot;let wiseWords = &quot;\&quot;Imagination is more important">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《浅入浅出Swift》String 字符和字符串">
 <meta property="og:url" content="http://yoursite.com/2014/07/06/2014-7-6-Swift-String/index.html">
-<meta property="og:site_name" content="iceesj">
+<meta property="og:site_name" content="CSJ记录点滴">
 <meta property="og:description" content="####String
 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647super.viewDidLoad()self.navigationItem.title = &quot;字符和字符串&quot;let wiseWords = &quot;\&quot;Imagination is more important">
 <meta property="og:updated_time" content="2014-07-19T12:41:34.000Z">
@@ -22,1131 +92,742 @@
 <meta name="twitter:title" content="《浅入浅出Swift》String 字符和字符串">
 <meta name="twitter:description" content="####String
 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647super.viewDidLoad()self.navigationItem.title = &quot;字符和字符串&quot;let wiseWords = &quot;\&quot;Imagination is more important">
-<meta name="twitter:creator" content="@iceesj">
 
-    
-    <link rel="alternative" href="/atom.xml" title="iceesj" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/author.jpg">
-    
-    
-    <link rel="apple-touch-icon" href="/img/author.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/author.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/07/06/2014-7-6-Swift-String/"/>
+
+
+
+
+
+  <title>《浅入浅出Swift》String 字符和字符串 | CSJ记录点滴</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?366d20d0eb199eff12c7b48185ee0e70";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="iceesj" title="iceesj"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="iceesj">iceesj</a></h1>
-				<h2 class="blog-motto">Vida Loca</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:yoursite.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
   
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
+  
     
-      <a href="/2014/07/06/2014-7-6-Swift-String/" title="《浅入浅出Swift》String 字符和字符串" itemprop="url">《浅入浅出Swift》String 字符和字符串</a>
-  </h1>
-  <p class="article-time">
-    <time datetime="2014-07-06T15:30:00.000Z" itemprop="datePublished"> Published 2014-07-06</time>
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
-  </p>
-</header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-number">1.</span> <span class="toc-text">Reference</span></a></li></ol>
-		
-		</div>
-		
-		<p>####String</p>
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CSJ记录点滴</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要用任何借口去阻止你学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/06/2014-7-6-Swift-String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CSJ记录点滴">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《浅入浅出Swift》String 字符和字符串</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-06T23:30:00+08:00">
+                2014-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/String/" itemprop="url" rel="index">
+                    <span itemprop="name">String</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>####String</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"><span class="keyword">self</span>.navigationItem.title = <span class="string">"字符和字符串"</span></span><br><span class="line"></span><br><span class="line">let wiseWords = <span class="string">"\"Imagination is more important than knowledge\" - Einstein"</span></span><br><span class="line">println(<span class="string">"\(wiseWords)"</span>)</span><br><span class="line"><span class="comment">// "Imagination is more important than knowledge" - Einstein</span></span><br><span class="line"></span><br><span class="line">let dollarSign = <span class="string">"\x24"</span>        <span class="comment">//$ ,Unicode scalar U+0024</span></span><br><span class="line">println(<span class="string">"dollarSign : \(dollarSign)"</span>)</span><br><span class="line"></span><br><span class="line">let blackHeart = <span class="string">"\u2665"</span>      <span class="comment">//♥ ,Unicode scalar U+2665</span></span><br><span class="line">println(<span class="string">"blackHeart : \(blackHeart)"</span>)</span><br><span class="line"></span><br><span class="line">let sparklingHeart = <span class="string">"\U0001F496"</span><span class="comment">//💖</span></span><br><span class="line">println(<span class="string">"sparklingHeart : \(sparklingHeart)"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//空字符串</span></span><br><span class="line">var emptyString = <span class="string">""</span></span><br><span class="line">var anotherEmptyString = String()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> emptyString.isEmpty&#123;</span><br><span class="line">    println(<span class="string">"空"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var myString = <span class="string">"hello"</span></span><br><span class="line">myString += <span class="string">"world"</span></span><br><span class="line">println(<span class="string">"myString : \(myString)"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//字符个数 swift用countElements</span></span><br><span class="line">let myLongString = <span class="string">"Hello World~"</span></span><br><span class="line">println(<span class="string">"myLongString has \(countElements(myLongString)) characters"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//包含</span></span><br><span class="line">let myStringOne = <span class="string">"你猜"</span></span><br><span class="line">myStringOne.hasSuffix(<span class="string">"你"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//大小写转换</span></span><br><span class="line">let myWord = <span class="string">"Hellow World"</span></span><br><span class="line">println(myWord.uppercaseString)   <span class="comment">//HELLOW WORLD</span></span><br><span class="line">println(myWord.lowercaseString)    <span class="comment">//hellow world</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//编码</span></span><br><span class="line">let myBianma = <span class="string">"apple"</span></span><br><span class="line">myBianma.utf8</span><br><span class="line">myBianma.utf16</span><br><span class="line">myBianma.unicodeScalars</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://itunes.apple.com/cn/book/swift-programming-language/id881256329?mt=11" target="_blank" rel="external">The Swift Programming Language</a></li>
 </ul>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Swift/">Swift</a>►<a class="article-category-link" href="/categories/Swift/String/">String</a>
-</div>
-
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="http://yoursite.com/2014/07/06/2014-7-6-Swift-String/" data-title="《浅入浅出Swift》String 字符和字符串 | iceesj" data-tsina="null" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2014/07/07/2014-7-7-Swift-Array-Dictionary/" title="《浅入浅出Swift》Array,Dictionary 数组和字典">
-  <strong>上一篇：</strong><br/>
-  <span>
-  《浅入浅出Swift》Array,Dictionary 数组和字典</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2014/06/28/2014-6-28-Swift-basic/"  title="《浅入浅出Swift》var,let,data,typealias,Bool,Tuples,Optionals(?!),nil,Assertions">
- <strong>下一篇：</strong><br/> 
- <span>《浅入浅出Swift》var,let,data,typealias,Bool,Tuples,Optionals(?!),nil,Assertions
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-<section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2014/07/06/2014-7-6-Swift-String/" data-title="《浅入浅出Swift》String 字符和字符串" data-url="http://yoursite.com/2014/07/06/2014-7-6-Swift-String/"></div>
-</section>
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-number">1.</span> <span class="toc-text">Reference</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
-<aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github Card</p>
-<div class="github-card" data-github="iceesj" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">Categories</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/AddressBook/CFErrorRef/ABRecordRef/ABAddressBookRef/" title="ABAddressBookRef">ABAddressBookRef<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/AddressBook/CFErrorRef/ABRecordRef/" title="ABRecordRef">ABRecordRef<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/ARC/" title="ARC">ARC<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/AVFoundation/" title="AVFoundation">AVFoundation<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/AddressBook/" title="AddressBook">AddressBook<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Advanced-Operators/" title="Advanced Operators">Advanced Operators<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Appsupport/" title="Appsupport">Appsupport<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Array/" title="Array">Array<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Block/" title="Block">Block<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/AddressBook/CFErrorRef/" title="CFErrorRef">CFErrorRef<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIPanGestureRecognizer/UILabel/CGRect/" title="CGRect">CGRect<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/CLLocation/CLPlacemark/CLGeocoder/" title="CLGeocoder">CLGeocoder<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/CLLocation/" title="CLLocation">CLLocation<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/CLLocation/CLPlacemark/" title="CLPlacemark">CLPlacemark<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Classes/" title="Classes">Classes<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Closures/" title="Closures">Closures<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/UIRefreshControl/NSEC-PER-SEC/DISPATCH-TIME-NOW/" title="DISPATCH_TIME_NOW">DISPATCH_TIME_NOW<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Array/Dictionary/" title="Dictionary">Dictionary<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Enumerations/" title="Enumerations">Enumerations<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Extensions/" title="Extensions">Extensions<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSBundle/Security/GCD/" title="GCD">GCD<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Block/NSThread/GCD/" title="GCD">GCD<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Generics/" title="Generics">Generics<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Inheritance/" title="Inheritance">Inheritance<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Initialization/" title="Initialization">Initialization<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Introduction/" title="Introduction">Introduction<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/AVFoundation/NSNotification/MPMediaPickerController/" title="MPMediaPickerController">MPMediaPickerController<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/AVFoundation/NSNotification/MPMediaPickerController/MPMusicPlayerController/" title="MPMusicPlayerController">MPMusicPlayerController<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Methods/" title="Methods">Methods<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/MobileCoreServices/" title="MobileCoreServices">MobileCoreServices<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSBundle/" title="NSBundle">NSBundle<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/UIRefreshControl/NSEC-PER-SEC/" title="NSEC_PER_SEC">NSEC_PER_SEC<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSFileManager/" title="NSFileManager">NSFileManager<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/dispatch-time/NSIndexPath/" title="NSIndexPath">NSIndexPath<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSLayoutConstraint/NSLayoutAttributeCenterX/" title="NSLayoutAttributeCenterX">NSLayoutAttributeCenterX<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSLayoutConstraint/NSLayoutAttributeCenterX/NSLayoutAttributeCenterY/" title="NSLayoutAttributeCenterY">NSLayoutAttributeCenterY<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSLayoutConstraint/" title="NSLayoutConstraint">NSLayoutConstraint<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSLayoutConstraint/NSLayoutAttributeCenterX/NSLayoutAttributeCenterY/NSLayoutRelationEqual/" title="NSLayoutRelationEqual">NSLayoutRelationEqual<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/dispatch-time/NSIndexPath/removeObject/insertObject/NSMutableArray/" title="NSMutableArray">NSMutableArray<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSMutableAttributedString/" title="NSMutableAttributedString">NSMutableAttributedString<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/enumerateKeysAndObjectsUsingBlock/enumerateObjectsUsingBlock/deleteRowsAtIndexPaths/NSNotFound/" title="NSNotFound">NSNotFound<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/AVFoundation/NSNotification/" title="NSNotification">NSNotification<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Block/NSThread/" title="NSThread">NSThread<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSTimer/UIBackgroundTaskIdentifier/NSTimeInterval/" title="NSTimeInterval">NSTimeInterval<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Block/NSThread/GCD/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSTimer/" title="NSTimer">NSTimer<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/NestedTypes/" title="NestedTypes">NestedTypes<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Optional-Chaining/" title="Optional Chaining">Optional Chaining<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Properties/" title="Properties">Properties<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Protocols/" title="Protocols">Protocols<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSBundle/Security/" title="Security">Security<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UINavigationController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITabBarController/UIKit/Storyboard/" title="Storyboard">Storyboard<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/String/" title="String">String<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Classes/Structures/" title="Structures">Structures<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Subscripts/" title="Subscripts">Subscripts<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/" title="Swift">Swift<sup>22</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/TypeCasting/" title="TypeCasting">TypeCasting<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIActivityViewController/" title="UIActivityViewController">UIActivityViewController<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIAlertView/" title="UIAlertView">UIAlertView<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIAttachmentBehavior/" title="UIAttachmentBehavior">UIAttachmentBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSTimer/UIBackgroundTaskIdentifier/" title="UIBackgroundTaskIdentifier">UIBackgroundTaskIdentifier<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIBarButtonItem/" title="UIBarButtonItem">UIBarButtonItem<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSLayoutConstraint/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIBarButtonItem/UIButton/" title="UIButton">UIButton<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollectionViewDataSource/" title="UICollectionViewDataSource">UICollectionViewDataSource<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollectionViewDataSource/UICollectionViewDelegate/" title="UICollectionViewDelegate">UICollectionViewDelegate<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollectionViewDataSource/UICollectionViewDelegate/cellForItemAtIndexPath/UIPinchGestureRecognizer/UICollectionViewFlowLayout/" title="UICollectionViewFlowLayout">UICollectionViewFlowLayout<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIGravityBehavior/UIDynamicItemBehavior/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/" title="UICollisionBehavior">UICollisionBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollisionBehaviorDelegate/" title="UICollisionBehaviorDelegate">UICollisionBehaviorDelegate<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/UIControlStateNormal/UIControlEventTouchUpInside/" title="UIControlEventTouchUpInside">UIControlEventTouchUpInside<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/UIControlStateNormal/" title="UIControlStateNormal">UIControlStateNormal<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIDatePicker/" title="UIDatePicker">UIDatePicker<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIAttachmentBehavior/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>3</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/" title="UIDynamicAnimator">UIDynamicAnimator<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIGravityBehavior/UIDynamicItemBehavior/" title="UIDynamicItemBehavior">UIDynamicItemBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIDynamicAnimator/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollisionBehaviorDelegate/UIDynamicAnimator/UICollisionBehavior/UIGravityBehavior/" title="UIGravityBehavior">UIGravityBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/MobileCoreServices/UIImagePickerController/" title="UIImagePickerController">UIImagePickerController<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIImageView/" title="UIImageView">UIImageView<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS7/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITabBarController/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UINavigationController/UIKit/" title="UIKit">UIKit<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIPanGestureRecognizer/UILabel/" title="UILabel">UILabel<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UILabel/" title="UILabel">UILabel<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UINavigationController/" title="UINavigationController">UINavigationController<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIPageViewController/" title="UIPageViewController">UIPageViewController<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIPanGestureRecognizer/" title="UIPanGestureRecognizer">UIPanGestureRecognizer<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIPickerView/" title="UIPickerView">UIPickerView<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollectionViewDataSource/UICollectionViewDelegate/cellForItemAtIndexPath/UIPinchGestureRecognizer/" title="UIPinchGestureRecognizer">UIPinchGestureRecognizer<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIPopoverController/" title="UIPopoverController">UIPopoverController<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIProgressView/" title="UIProgressView">UIProgressView<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIDynamicAnimator/UIPushBehavior/" title="UIPushBehavior">UIPushBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/UIRefreshControl/" title="UIRefreshControl">UIRefreshControl<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIScrollView/" title="UIScrollView">UIScrollView<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UISegmentedControl/" title="UISegmentedControl">UISegmentedControl<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UISlider/" title="UISlider">UISlider<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIDynamicAnimator/UISnapBehavior/" title="UISnapBehavior">UISnapBehavior<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UISwitch/" title="UISwitch">UISwitch<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITabBarController/" title="UITabBarController">UITabBarController<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/UITableViewCellAccessoryDetailDisclosureButton/" title="UITableViewCellAccessoryDetailDisclosureButton">UITableViewCellAccessoryDetailDisclosureButton<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/" title="UITableViewDataSource">UITableViewDataSource<sup>7</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/" title="UITableViewDelegate">UITableViewDelegate<sup>7</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITextField/" title="UITextField">UITextField<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIAttachmentBehavior/UIDynamicAnimator/UIView/" title="UIView">UIView<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UIWebView/" title="UIWebView">UIWebView<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSBundle/Security/GCD/bridge/" title="__bridge">__bridge<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/UITableViewCellAccessoryDetailDisclosureButton/accessoryType/" title="accessoryType">accessoryType<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UICollectionViewDataSource/UICollectionViewDelegate/cellForItemAtIndexPath/" title="cellForItemAtIndexPath">cellForItemAtIndexPath<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/cellForRowAtIndexPath/" title="cellForRowAtIndexPath">cellForRowAtIndexPath<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/cellForRowAtIndexPath/commitEditingStyle/" title="commitEditingStyle">commitEditingStyle<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSFileManager/createDirectoryAtPath/" title="createDirectoryAtPath">createDirectoryAtPath<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/enumerateKeysAndObjectsUsingBlock/enumerateObjectsUsingBlock/deleteRowsAtIndexPaths/" title="deleteRowsAtIndexPaths">deleteRowsAtIndexPaths<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/dispatch-time/" title="dispatch_time">dispatch_time<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/UIRefreshControl/NSEC-PER-SEC/DISPATCH-TIME-NOW/dispatch-time-t/" title="dispatch_time_t">dispatch_time_t<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/if/for/while/do/" title="do">do<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/enumerateKeysAndObjectsUsingBlock/" title="enumerateKeysAndObjectsUsingBlock">enumerateKeysAndObjectsUsingBlock<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/enumerateKeysAndObjectsUsingBlock/enumerateObjectsUsingBlock/" title="enumerateObjectsUsingBlock">enumerateObjectsUsingBlock<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/if/for/" title="for">for<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/func/" title="func">func<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS7/" title="iOS7">iOS7<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/if/" title="if">if<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/dispatch-time/NSIndexPath/removeObject/insertObject/" title="insertObject">insertObject<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/instagram/" title="instagram">instagram<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/jottings/" title="jottings">jottings<sup>3</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/dispatch-time/NSIndexPath/removeObject/" title="removeObject">removeObject<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/NSTimer/UIBackgroundTaskIdentifier/NSTimeInterval/scheduledTimerWithTimeInterval/" title="scheduledTimerWithTimeInterval">scheduledTimerWithTimeInterval<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/cellForRowAtIndexPath/commitEditingStyle/setEditing/" title="setEditing">setEditing<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/计划/swift/" title="swift">swift<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/titleForHeaderInSection/titleForFooterInSection/" title="titleForFooterInSection">titleForFooterInSection<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/UITableViewDelegate/UITableViewDataSource/titleForHeaderInSection/" title="titleForHeaderInSection">titleForHeaderInSection<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/if/for/while/" title="while">while<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Subscripts/下标/" title="下标">下标<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/func/函数/" title="函数">函数<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Protocols/协议/" title="协议">协议<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Optional-Chaining/可选链/" title="可选链">可选链<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Array/Dictionary/数组/字典/" title="字典">字典<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Methods/方法/实例方法/" title="实例方法">实例方法<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Properties/属性/" title="属性">属性<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/NestedTypes/嵌套类型/" title="嵌套类型">嵌套类型<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Extensions/扩展/" title="扩展">扩展<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/if/for/while/do/控制语句/" title="控制语句">控制语句<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Array/Dictionary/数组/" title="数组">数组<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Methods/方法/" title="方法">方法<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Initialization/构造过程/" title="构造过程">构造过程<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Initialization/析构过程/" title="析构过程">析构过程<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Enumerations/枚举/" title="枚举">枚举<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Generics/泛型/" title="泛型">泛型<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Classes/Structures/类/" title="类">类<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/TypeCasting/类型转换/" title="类型转换">类型转换<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Methods/方法/实例方法/类方法/" title="类方法">类方法<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Classes/Structures/类/结构体/" title="结构体">结构体<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Inheritance/继承/" title="继承">继承<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/ARC/自动引用计数/" title="自动引用计数">自动引用计数<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/计划/" title="计划">计划<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Closures/闭包/" title="闭包">闭包<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Swift/Advanced-Operators/高级运算符/" title="高级运算符">高级运算符<sup>1</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">Tags</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/tel/" title="tel">tel<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/preact/" title="preact">preact<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mobx/" title="mobx">mobx<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/inject/" title="inject">inject<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/connect/" title="connect">connect<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/wkwebview/" title="wkwebview">wkwebview<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/uiwebview/" title="uiwebview">uiwebview<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">Links</p>
-    <ul>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello ,I&#39;m CSJ. <br/>
-			</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		<a href="https://github.com/iceesj" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		<a href="https://twitter.com/iceesj" target="_blank" class="icon-twitter" title="twitter"></a>
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:iceesj@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		<a href="http://iceesj.com/about" target="_blank" title="iceesj">iceesj</a> © 2018
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
       
-      $('#toc.toc-aside').css('display', 'none');
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/06/28/2014-6-28-Swift-basic/" rel="next" title="《浅入浅出Swift》var,let,data,typealias,Bool,Tuples,Optionals(?!),nil,Assertions">
+                <i class="fa fa-chevron-left"></i> 《浅入浅出Swift》var,let,data,typealias,Bool,Tuples,Optionals(?!),nil,Assertions
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/07/07/2014-7-7-Swift-Array-Dictionary/" rel="prev" title="《浅入浅出Swift》Array,Dictionary 数组和字典">
+                《浅入浅出Swift》Array,Dictionary 数组和字典 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTYyMS8xMjE1Nw"></div>
+    </div>
+
+  
+
+
+
+        </div>
         
-    }
-  });
-});
-</script>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">160</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/iceesj" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:iceesj@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/iceesj" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iceesj</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65637782";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
 
 <script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
-
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"iceesj"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
-}); 
 </script>
 
 
 
-<!-- Analytics Begin -->
 
 
 
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?d0b498b45b12c3ecd9b2f0931b132641";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 
 
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+  
 
 
-<!-- MathJax End -->
+  
 
-<!-- Tiny_search Begin -->
 
-<!-- Tiny_search End -->
 
-  </body>
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
