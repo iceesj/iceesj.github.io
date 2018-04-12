@@ -62,7 +62,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.png?v=5.1.4" color="#222">
 
 
 
@@ -79,19 +79,16 @@
 
 
 
-<meta name="description" content="####NestedTypes
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950struct BlackjackCard&amp;#123;    //nested Suit enumeration 嵌套适合的枚举    enum Suit: Character&amp;#123;">
+<meta name="description" content="NestedTypes12345678910111213141516171819202122232425262728struct BlackjackCard&amp;#123;    //nested Suit enumeration 嵌套适合的枚举    enum Suit: Character&amp;#123;//性格品质        case Spades = &quot;♠&quot;, Hearts = &quot;♡&quot;, Di">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《浅入浅出Swift》NestedTypes 嵌套类型">
 <meta property="og:url" content="http://yoursite.com/2014/08/07/2014-8-7-Swift-NestedTypes/index.html">
 <meta property="og:site_name" content="CSJ记录点滴">
-<meta property="og:description" content="####NestedTypes
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950struct BlackjackCard&amp;#123;    //nested Suit enumeration 嵌套适合的枚举    enum Suit: Character&amp;#123;">
-<meta property="og:updated_time" content="2014-08-07T11:47:42.000Z">
+<meta property="og:description" content="NestedTypes12345678910111213141516171819202122232425262728struct BlackjackCard&amp;#123;    //nested Suit enumeration 嵌套适合的枚举    enum Suit: Character&amp;#123;//性格品质        case Spades = &quot;♠&quot;, Hearts = &quot;♡&quot;, Di">
+<meta property="og:updated_time" content="2018-04-11T09:25:02.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《浅入浅出Swift》NestedTypes 嵌套类型">
-<meta name="twitter:description" content="####NestedTypes
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950struct BlackjackCard&amp;#123;    //nested Suit enumeration 嵌套适合的枚举    enum Suit: Character&amp;#123;">
+<meta name="twitter:description" content="NestedTypes12345678910111213141516171819202122232425262728struct BlackjackCard&amp;#123;    //nested Suit enumeration 嵌套适合的枚举    enum Suit: Character&amp;#123;//性格品质        case Spades = &quot;♠&quot;, Hearts = &quot;♡&quot;, Di">
 
 
 
@@ -365,6 +362,17 @@
 
           
           
+             <span id="/2014/08/07/2014-8-7-Swift-NestedTypes/" class="leancloud_visitors" data-flag-title="《浅入浅出Swift》NestedTypes 嵌套类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -385,9 +393,9 @@
       
 
       
-        <p>####NestedTypes</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">struct</span> BlackjackCard&#123;</span><br><span class="line">    <span class="comment">//nested Suit enumeration 嵌套适合的枚举</span></span><br><span class="line">    <span class="keyword">enum</span> Suit: Character&#123;<span class="comment">//性格品质</span></span><br><span class="line">        <span class="keyword">case</span> Spades = <span class="string">"♠"</span>, Hearts = <span class="string">"♡"</span>, Diamonds = <span class="string">"♢"</span>, Clubs = <span class="string">"♣"</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">enum</span> Rank: Int &#123;</span><br><span class="line">        <span class="keyword">case</span> Two = <span class="number">2</span>, Three, Four, Five, Six, Seven, Eight, Nine, Ten</span><br><span class="line">        <span class="keyword">case</span> Jack, Queen, King, Ace</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">struct</span> Values &#123;</span><br><span class="line">            let first: Int, second: Int?</span><br><span class="line">        &#125;</span><br><span class="line">        var values : Values&#123;</span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span>&#123;</span><br><span class="line">            <span class="keyword">case</span> .Ace:</span><br><span class="line">                <span class="keyword">return</span> Values(first: <span class="number">1</span>, second: <span class="number">11</span>)</span><br><span class="line">            <span class="keyword">case</span> .Jack, .Queen, .King:</span><br><span class="line">                <span class="keyword">return</span> Values(first: <span class="number">10</span>, second: <span class="literal">nil</span>)</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="comment">//使用toRaw 和fromRaw 两个函数，实现原始值和枚举值之间进行切换</span></span><br><span class="line">                <span class="comment">//定义原始枚举类型是Int型，只需要给第一个定义枚举赋值，后续会顺序分配；</span></span><br><span class="line">                <span class="comment">//你也可以使用浮点型和String类型作为枚举的原始类型</span></span><br><span class="line">                <span class="keyword">return</span> Values(first: <span class="keyword">self</span>.toRaw(), second: <span class="literal">nil</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//BlackjackCard properties and methods</span></span><br><span class="line">    let rank: Rank , suit: Suit</span><br><span class="line">    <span class="comment">//描述</span></span><br><span class="line">    var description: String &#123;</span><br><span class="line">        var output = <span class="string">"suit is \(suit.toRaw()),"</span><span class="comment">//传入Spades</span></span><br><span class="line">            output += <span class="string">"value is \(rank.values.second)"</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> let second = rank.values.second&#123;</span><br><span class="line">                output += <span class="string">" or \(second)"</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> output</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let theAceOfSpades = BlackjackCard(rank: .Ace, suit: .Spades)</span><br><span class="line">println(<span class="string">"theAceOfSpades: \(theAceOfSpades.description)"</span>)</span><br><span class="line"><span class="comment">//theAceOfSpades : suit is ♠,value is lor 11</span></span><br><span class="line"></span><br><span class="line">let heartsSymbol = BlackjackCard.Suit.Hearts.toRaw()<span class="comment">//转化成实际值，</span></span><br><span class="line">println(<span class="string">"heartsSymbol = \(heartsSymbol)"</span>)</span><br></pre></td></tr></table></figure>
+        <h4 id="NestedTypes"><a href="#NestedTypes" class="headerlink" title="NestedTypes"></a>NestedTypes</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BlackjackCard</span></span>&#123;</span><br><span class="line">    <span class="comment">//nested Suit enumeration 嵌套适合的枚举</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Suit</span>: <span class="title">Character</span></span>&#123;<span class="comment">//性格品质</span></span><br><span class="line">        <span class="keyword">case</span> <span class="type">Spades</span> = <span class="string">"♠"</span>, <span class="type">Hearts</span> = <span class="string">"♡"</span>, <span class="type">Diamonds</span> = <span class="string">"♢"</span>, <span class="type">Clubs</span> = <span class="string">"♣"</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Rank</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="type">Two</span> = <span class="number">2</span>, <span class="type">Three</span>, <span class="type">Four</span>, <span class="type">Five</span>, <span class="type">Six</span>, <span class="type">Seven</span>, <span class="type">Eight</span>, <span class="type">Nine</span>, <span class="type">Ten</span></span><br><span class="line">        <span class="keyword">case</span> <span class="type">Jack</span>, <span class="type">Queen</span>, <span class="type">King</span>, <span class="type">Ace</span></span><br><span class="line">        </span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Values</span> </span>&#123;</span><br><span class="line">            <span class="keyword">let</span> first: <span class="type">Int</span>, second: <span class="type">Int</span>?</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> values : <span class="type">Values</span>&#123;</span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span>&#123;</span><br><span class="line">            <span class="keyword">case</span> .<span class="type">Ace</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">1</span>, second: <span class="number">11</span>)</span><br><span class="line">            <span class="keyword">case</span> .<span class="type">Jack</span>, .<span class="type">Queen</span>, .<span class="type">King</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">10</span>, second: <span class="literal">nil</span>)</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="comment">//使用toRaw 和fromRaw 两个函数，实现原始值和枚举值之间进行切换</span></span><br><span class="line">                <span class="comment">//定义原始枚举类型是Int型，只需要给第一个定义枚举赋值，后续会顺序分配；</span></span><br><span class="line">                <span class="comment">//你也可以使用浮点型和String类型作为枚举的原始类型</span></span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="keyword">self</span>.toRaw(), second: <span class="literal">nil</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    <span class="comment">//BlackjackCard properties and methods</span></span><br><span class="line">    <span class="keyword">let</span> rank: <span class="type">Rank</span> , suit: <span class="type">Suit</span></span><br><span class="line">    <span class="comment">//描述</span></span><br><span class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> output = <span class="string">"suit is \(suit.toRaw()),"</span><span class="comment">//传入Spades</span></span><br><span class="line">            output += <span class="string">"value is \(rank.values.second)"</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> second = rank.values.second&#123;</span><br><span class="line">                output += <span class="string">" or \(second)"</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> output</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> theAceOfSpades = <span class="type">BlackjackCard</span>(rank: .<span class="type">Ace</span>, suit: .<span class="type">Spades</span>)</span><br><span class="line"><span class="built_in">println</span>(<span class="string">"theAceOfSpades: \(theAceOfSpades.description)"</span>)</span><br><span class="line"><span class="comment">//theAceOfSpades : suit is ♠,value is lor 11</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> heartsSymbol = <span class="type">BlackjackCard</span>.<span class="type">Suit</span>.<span class="type">Hearts</span>.toRaw()<span class="comment">//转化成实际值，</span></span><br><span class="line"><span class="built_in">println</span>(<span class="string">"heartsSymbol = \(heartsSymbol)"</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://itunes.apple.com/cn/book/swift-programming-language/id881256329?mt=11" target="_blank" rel="external">The Swift Programming Language</a></li>
 </ul>
@@ -469,6 +477,32 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
       
     </div>
   </div>
@@ -614,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#NestedTypes"><span class="nav-number">1.</span> <span class="nav-text">NestedTypes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number"></span> <span class="nav-text">Reference</span></a></div>
             
 
           </div>
@@ -826,6 +860,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JgftWOOfB35bBaoywC63VdLP-gzGzoHsz", "s4QuH5SsLNH2FIjt0CQYmRk2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

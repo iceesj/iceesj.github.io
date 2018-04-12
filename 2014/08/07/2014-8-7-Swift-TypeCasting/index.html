@@ -62,7 +62,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.png?v=5.1.4" color="#222">
 
 
 
@@ -80,18 +80,18 @@
 
 
 <meta name="description" content="####TypeCasting
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889//swift 提供了 is">
+12345678910111213141516//swift 提供了 is 和 as 两个操作符，用以检测值的类型或者转换它的类型class MyBasic&amp;#123;    var name : String    init (name : String)&amp;#123;        self.name = name    &amp;#125;&amp;#125;class MyF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《浅入浅出Swift》TypeCasting 类型转换">
 <meta property="og:url" content="http://yoursite.com/2014/08/07/2014-8-7-Swift-TypeCasting/index.html">
 <meta property="og:site_name" content="CSJ记录点滴">
 <meta property="og:description" content="####TypeCasting
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889//swift 提供了 is">
-<meta property="og:updated_time" content="2014-08-07T11:42:36.000Z">
+12345678910111213141516//swift 提供了 is 和 as 两个操作符，用以检测值的类型或者转换它的类型class MyBasic&amp;#123;    var name : String    init (name : String)&amp;#123;        self.name = name    &amp;#125;&amp;#125;class MyF">
+<meta property="og:updated_time" content="2018-04-11T12:28:59.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《浅入浅出Swift》TypeCasting 类型转换">
 <meta name="twitter:description" content="####TypeCasting
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889//swift 提供了 is">
+12345678910111213141516//swift 提供了 is 和 as 两个操作符，用以检测值的类型或者转换它的类型class MyBasic&amp;#123;    var name : String    init (name : String)&amp;#123;        self.name = name    &amp;#125;&amp;#125;class MyF">
 
 
 
@@ -365,6 +365,17 @@
 
           
           
+             <span id="/2014/08/07/2014-8-7-Swift-TypeCasting/" class="leancloud_visitors" data-flag-title="《浅入浅出Swift》TypeCasting 类型转换">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -386,8 +397,9 @@
 
       
         <p>####TypeCasting</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//swift 提供了 is 和 as 两个操作符，用以检测值的类型或者转换它的类型</span></span><br><span class="line">class MyBasic&#123;</span><br><span class="line">    var name : String</span><br><span class="line">    init (name : String)&#123;</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyFriend : MyBasic &#123;</span><br><span class="line">    var level = <span class="number">9</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MySelf : MyBasic &#123;</span><br><span class="line">    var height = <span class="number">9</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var myArray = [MyFriend(name: <span class="string">"Hello"</span>),MySelf(name: <span class="string">"Kitty"</span>)];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> elem <span class="keyword">in</span> myArray&#123;</span><br><span class="line">    <span class="keyword">if</span> elem is MyFriend&#123;<span class="comment">//判断elem是否是MyFriend类型</span></span><br><span class="line">        let obj = elem as MyFriend <span class="comment">//将obj视为elem向下转型为MyFriend</span></span><br><span class="line">        println(<span class="string">"name: \(obj.name) level: \(obj.level)"</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> elem is MySelf&#123;</span><br><span class="line">        let obj = elem as MySelf</span><br><span class="line">        println(<span class="string">"name \(obj.name) level:\(obj.height)"</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断了类型之后转型，放在一条语句执行</span></span><br><span class="line">let obj = myArray[<span class="number">0</span>] as? MySelf</span><br><span class="line">println(<span class="string">"obj = \(obj)"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Any和AnyObject</span></span><br><span class="line"><span class="comment">//AnyObject可以代表任何类的实例</span></span><br><span class="line"><span class="comment">//Any可以代表任何类型，除了函数</span></span><br><span class="line"><span class="comment">//OC中会返回一个AnyObject类型的数组，因为OC中没有明确类型的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//AnyObject</span></span><br><span class="line">var myNewArray: [AnyObject] = [MyFriend(name: <span class="string">"Hello"</span>),MySelf(name: <span class="string">"Kitty"</span>)];</span><br><span class="line"><span class="keyword">for</span> elem <span class="keyword">in</span> myNewArray as [MyFriend] &#123;<span class="comment">//将数组myNewArray看作是MyFriend类型的数组</span></span><br><span class="line">    println(<span class="string">"name \(elem.name) level:\(elem.level)"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Any</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">var things＝[Any]()</span><br><span class="line">things.append(0)</span><br><span class="line">things.append(0.0)</span><br><span class="line">things.append(42)</span><br><span class="line">things.append(3.14159)</span><br><span class="line">things.append("hello")</span><br><span class="line">things.append((3.0, 5.0))</span><br><span class="line">things.append(Movie(name: "Ghostbusters", director: "Ivan Reitman"))</span><br><span class="line">for thing in things &#123;</span><br><span class="line">    switch thing &#123;</span><br><span class="line">    case 0 as Int:</span><br><span class="line">        println("zero as an Int")</span><br><span class="line">    case 0 as Double:</span><br><span class="line">        println("zero as a Double")</span><br><span class="line">    case let someInt as Int:</span><br><span class="line">        println("an integer value of \(someInt)")</span><br><span class="line">    case let someDouble as Double where someDouble &gt; 0:</span><br><span class="line">        println("a positive double value of \(someDouble)")</span><br><span class="line">    case is Double:</span><br><span class="line">        println("some other double value that I don't want to print")</span><br><span class="line">    case let someString as String:</span><br><span class="line">        println("a string value of \"\(someString)\"")</span><br><span class="line">    case let (x, y) as (Double, Double):</span><br><span class="line">        println("an (x, y) point at \(x), \(y)")</span><br><span class="line">    case let movie as Movie:</span><br><span class="line">        println("a movie called '\(movie.name)', dir. \(movie.director)")</span><br><span class="line">    default:</span><br><span class="line">        println("something else")</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// zero as an Int</span><br><span class="line">// zero as a Double</span><br><span class="line">// an integer value of 42</span><br><span class="line">// a positive double value of 3.14159</span><br><span class="line">// a string value of "hello"</span><br><span class="line">// an (x, y) point at 3.0, 5.0</span><br><span class="line">// a movie called 'Ghostbusters', dir. Ivan Reitman</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//swift 提供了 is 和 as 两个操作符，用以检测值的类型或者转换它的类型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyBasic</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name : <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span> (name : <span class="type">String</span>)&#123;</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFriend</span> : <span class="title">MyBasic</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> level = <span class="number">9</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySelf</span> : <span class="title">MyBasic</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> height = <span class="number">9</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> myArray = [<span class="type">MyFriend</span>(name: <span class="string">"Hello"</span>),<span class="type">MySelf</span>(name: <span class="string">"Kitty"</span>)];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> elem <span class="keyword">in</span> myArray&#123;</span><br><span class="line">    <span class="keyword">if</span> elem <span class="keyword">is</span> <span class="type">MyFriend</span>&#123;<span class="comment">//判断elem是否是MyFriend类型</span></span><br><span class="line">        <span class="keyword">let</span> obj = elem <span class="keyword">as</span> <span class="type">MyFriend</span> <span class="comment">//将obj视为elem向下转型为MyFriend</span></span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"name: \(obj.name) level: \(obj.level)"</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> elem <span class="keyword">is</span> <span class="type">MySelf</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> obj = elem <span class="keyword">as</span> <span class="type">MySelf</span></span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"name \(obj.name) level:\(obj.height)"</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断了类型之后转型，放在一条语句执行</span></span><br><span class="line"><span class="keyword">let</span> obj = myArray[<span class="number">0</span>] <span class="keyword">as</span>? <span class="type">MySelf</span></span><br><span class="line"><span class="built_in">println</span>(<span class="string">"obj = \(obj)"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Any和AnyObject</span></span><br><span class="line"><span class="comment">//AnyObject可以代表任何类的实例</span></span><br><span class="line"><span class="comment">//Any可以代表任何类型，除了函数</span></span><br><span class="line"><span class="comment">//OC中会返回一个AnyObject类型的数组，因为OC中没有明确类型的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//AnyObject</span></span><br><span class="line"><span class="keyword">var</span> myNewArray: [<span class="type">AnyObject</span>] = [<span class="type">MyFriend</span>(name: <span class="string">"Hello"</span>),<span class="type">MySelf</span>(name: <span class="string">"Kitty"</span>)];</span><br><span class="line"><span class="keyword">for</span> elem <span class="keyword">in</span> myNewArray <span class="keyword">as</span> [<span class="type">MyFriend</span>] &#123;<span class="comment">//将数组myNewArray看作是MyFriend类型的数组</span></span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"name \(elem.name) level:\(elem.level)"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Any</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">var things＝[Any]()</span><br><span class="line">things.append(0)</span><br><span class="line">things.append(0.0)</span><br><span class="line">things.append(42)</span><br><span class="line">things.append(3.14159)</span><br><span class="line">things.append("hello")</span><br><span class="line">things.append((3.0, 5.0))</span><br><span class="line">things.append(Movie(name: "Ghostbusters", director: "Ivan Reitman"))</span><br><span class="line">for thing in things &#123;</span><br><span class="line">    switch thing &#123;</span><br><span class="line">    case 0 as Int:</span><br><span class="line">        println("zero as an Int")</span><br><span class="line">    case 0 as Double:</span><br><span class="line">        println("zero as a Double")</span><br><span class="line">    case let someInt as Int:</span><br><span class="line">        println("an integer value of \(someInt)")</span><br><span class="line">    case let someDouble as Double where someDouble &gt; 0:</span><br><span class="line">        println("a positive double value of \(someDouble)")</span><br><span class="line">    case is Double:</span><br><span class="line">        println("some other double value that I don't want to print")</span><br><span class="line">    case let someString as String:</span><br><span class="line">        println("a string value of \"\(someString)\"")</span><br><span class="line">    case let (x, y) as (Double, Double):</span><br><span class="line">        println("an (x, y) point at \(x), \(y)")</span><br><span class="line">    case let movie as Movie:</span><br><span class="line">        println("a movie called '\(movie.name)', dir. \(movie.director)")</span><br><span class="line">    default:</span><br><span class="line">        println("something else")</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// zero as an Int</span><br><span class="line">// zero as a Double</span><br><span class="line">// an integer value of 42</span><br><span class="line">// a positive double value of 3.14159</span><br><span class="line">// a string value of "hello"</span><br><span class="line">// an (x, y) point at 3.0, 5.0</span><br><span class="line">// a movie called 'Ghostbusters', dir. Ivan Reitman</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://itunes.apple.com/cn/book/swift-programming-language/id881256329?mt=11" target="_blank" rel="external">The Swift Programming Language</a></li>
 </ul>
@@ -469,6 +481,32 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
       
     </div>
   </div>
@@ -826,6 +864,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JgftWOOfB35bBaoywC63VdLP-gzGzoHsz", "s4QuH5SsLNH2FIjt0CQYmRk2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

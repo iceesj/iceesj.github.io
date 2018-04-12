@@ -62,7 +62,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.png?v=5.1.4" color="#222">
 
 
 
@@ -80,18 +80,21 @@
 
 
 <meta name="description" content="wkwebview中屏蔽了tel的url所以我们要用下面这些代码来解决js调用源生iOS系统拨打电话不能的问题；而uiwebview中不会有这样的问题
-1234567891011121314151617181920212223extension ViewController &amp;#123;    //add WKWebView    fileprivate func addWkWebView() &amp;">
+Swift 4
+1234567extension ViewController &amp;#123;    //add WKWebView    fileprivate func addWkWebView() &amp;#123;            if #a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wkwebview_tel">
 <meta property="og:url" content="http://yoursite.com/2018/04/10/wkwebview-tel/index.html">
 <meta property="og:site_name" content="CSJ记录点滴">
 <meta property="og:description" content="wkwebview中屏蔽了tel的url所以我们要用下面这些代码来解决js调用源生iOS系统拨打电话不能的问题；而uiwebview中不会有这样的问题
-1234567891011121314151617181920212223extension ViewController &amp;#123;    //add WKWebView    fileprivate func addWkWebView() &amp;">
-<meta property="og:updated_time" content="2018-04-10T10:23:53.272Z">
+Swift 4
+1234567extension ViewController &amp;#123;    //add WKWebView    fileprivate func addWkWebView() &amp;#123;            if #a">
+<meta property="og:updated_time" content="2018-04-11T07:53:59.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wkwebview_tel">
 <meta name="twitter:description" content="wkwebview中屏蔽了tel的url所以我们要用下面这些代码来解决js调用源生iOS系统拨打电话不能的问题；而uiwebview中不会有这样的问题
-1234567891011121314151617181920212223extension ViewController &amp;#123;    //add WKWebView    fileprivate func addWkWebView() &amp;">
+Swift 4
+1234567extension ViewController &amp;#123;    //add WKWebView    fileprivate func addWkWebView() &amp;#123;            if #a">
 
 
 
@@ -321,6 +324,17 @@
 
           
           
+             <span id="/2018/04/10/wkwebview-tel/" class="leancloud_visitors" data-flag-title="wkwebview_tel">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -342,7 +356,10 @@
 
       
         <p>wkwebview中屏蔽了tel的url所以我们要用下面这些代码来解决js调用源生iOS系统拨打电话不能的问题；而uiwebview中不会有这样的问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">extension ViewController &#123;</span><br><span class="line">    //add WKWebView</span><br><span class="line">    fileprivate func <span class="function"><span class="title">addWkWebView</span></span>() &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="comment">#available(iOS 10.0, *) &#123;</span></span><br><span class="line">            configuration.dataDetectorTypes = .phoneNumber</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">extension ViewController: WKNavigationDelegate&#123;</span><br><span class="line">    //服务器开始请求的时候调用</span><br><span class="line">    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -&gt; Void) &#123;</span><br><span class="line">        <span class="keyword">if</span> navigationAction.request.url?.scheme == <span class="string">"tel"</span> &#123;</span><br><span class="line">            UIApplication.shared.openURL(navigationAction.request.url!)</span><br><span class="line">            decisionHandler(.cancel)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            decisionHandler(.allow)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">let</span> URL = navigationAction.request.url</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"URL = \(String(describing: URL))"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Swift 4</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span> </span>&#123;</span><br><span class="line">    <span class="comment">//add WKWebView</span></span><br><span class="line">    fileprivate <span class="function"><span class="keyword">func</span> <span class="title">addWkWebView</span><span class="params">()</span></span> &#123;</span><br><span class="line">            <span class="keyword">if</span> #available(iOS <span class="number">10.0</span>, *) &#123;</span><br><span class="line">            configuration.dataDetectorTypes = .phoneNumber</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">WKNavigationDelegate</span></span>&#123;</span><br><span class="line">    <span class="comment">//服务器开始请求的时候调用</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">webView</span><span class="params">(<span class="number">_</span> webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping <span class="params">(WKNavigationActionPolicy)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> navigationAction.request.url?.scheme == <span class="string">"tel"</span> &#123;</span><br><span class="line">            <span class="type">UIApplication</span>.shared.openURL(navigationAction.request.url!)</span><br><span class="line">            decisionHandler(.cancel)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            decisionHandler(.allow)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> <span class="type">URL</span> = navigationAction.request.url</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"URL = \(String(describing: URL))"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -428,6 +445,32 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
       
     </div>
   </div>
@@ -760,6 +803,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JgftWOOfB35bBaoywC63VdLP-gzGzoHsz", "s4QuH5SsLNH2FIjt0CQYmRk2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
