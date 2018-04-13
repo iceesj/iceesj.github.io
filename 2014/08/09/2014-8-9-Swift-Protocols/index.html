@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Protocols12345678910111213141516import UIKit//协议class Protocols: CSJSwiftViewController &amp;#123;    override func viewDidLoad() &amp;#123;        super.viewDidLoad()        self.navigationItem.title = &quot;协议&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《浅入浅出Swift》Protocols 协议">
+<meta property="og:url" content="http://yoursite.com/2014/08/09/2014-8-9-Swift-Protocols/index.html">
+<meta property="og:site_name" content="CSJ记录点滴">
+<meta property="og:description" content="Protocols12345678910111213141516import UIKit//协议class Protocols: CSJSwiftViewController &amp;#123;    override func viewDidLoad() &amp;#123;        super.viewDidLoad()        self.navigationItem.title = &quot;协议&quot;">
+<meta property="og:updated_time" content="2018-04-11T08:12:56.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《浅入浅出Swift》Protocols 协议">
+<meta name="twitter:description" content="Protocols12345678910111213141516import UIKit//协议class Protocols: CSJSwiftViewController &amp;#123;    override func viewDidLoad() &amp;#123;        super.viewDidLoad()        self.navigationItem.title = &quot;协议&quot;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/08/09/2014-8-9-Swift-Protocols/"/>
+
+
+
+
+
+  <title>《浅入浅出Swift》Protocols 协议 | CSJ记录点滴</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?366d20d0eb199eff12c7b48185ee0e70";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CSJ记录点滴</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要用任何借口去阻止你学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/08/09/2014-8-9-Swift-Protocols/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CSJ记录点滴">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《浅入浅出Swift》Protocols 协议</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-08-09T13:07:00+08:00">
+                2014-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/Protocols/" itemprop="url" rel="index">
+                    <span itemprop="name">Protocols</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/Protocols/协议/" itemprop="url" rel="index">
+                    <span itemprop="name">协议</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2014/08/09/2014-8-9-Swift-Protocols/" class="leancloud_visitors" data-flag-title="《浅入浅出Swift》Protocols 协议">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,763 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Protocols"><a href="#Protocols" class="headerlink" title="Protocols"></a>Protocols</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="comment">//协议</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Protocols</span>: <span class="title">CSJSwiftViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="keyword">self</span>.navigationItem.title = <span class="string">"协议"</span></span><br><span class="line">        protocolsMethod()</span><br><span class="line">        <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.didReceiveMemoryWarning()</span><br><span class="line">        <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">protocolsMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"----协议----"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//协议仅是用来定义某些任务或者功能必须的方法和属性。但协议并不会实现具体的功能。</span></span><br><span class="line">        <span class="comment">//语法</span></span><br><span class="line">        <span class="comment">/*</span><br><span class="line">        protocol SomeProtocol &#123;</span><br><span class="line">        //protocol definition goes here</span><br><span class="line">        &#125;</span><br><span class="line">        struct SomeStructure: FirstProtocol, AnotherProtocol &#123;</span><br><span class="line">        // structure definition goes here</span><br><span class="line">        &#125;</span><br><span class="line">        class SomeClass: SomeSuperclass, FirstProtocol, AnotherProtocol &#123;</span><br><span class="line">        // class definition goes here</span><br><span class="line">        &#125;</span><br><span class="line">        */</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> john = <span class="type">Person</span>(fullName: <span class="string">"John Appleseed"</span>)</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"john = \(john)"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//Starship</span></span><br><span class="line">        <span class="keyword">var</span> ncc1701 = <span class="type">Starship</span>(name: <span class="string">"Enterprise"</span>, <span class="keyword">prefix</span>: <span class="string">"USS"</span>)</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"ncc1701 = \(ncc1701)"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//方法要求</span></span><br><span class="line">        <span class="keyword">let</span> generator = <span class="type">LinearCongruentialGenerator</span>()</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"Here's a random number = \(generator.random())"</span>)</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"And another one = \(generator.random())"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//突变方法，OnOffSwitch</span></span><br><span class="line">        <span class="keyword">var</span> lightSwitch = <span class="type">OnOffSwitch</span>.<span class="type">Off</span></span><br><span class="line">        lightSwitch.toggle()</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"lightSwitch = \(lightSwitch)"</span>)<span class="comment">//is now equal to .On</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//协议类型</span></span><br><span class="line">        <span class="keyword">var</span> d6 = <span class="type">Dice</span>(sides: <span class="number">6</span>, generator: <span class="type">LinearCongruentialGenerator</span>())</span><br><span class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span>&#123;</span><br><span class="line">            <span class="built_in">println</span>(<span class="string">"Random dics roll is \(d6.roll())"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//代理</span></span><br><span class="line">        <span class="keyword">let</span> tracker = <span class="type">DiceGameTracker</span>()</span><br><span class="line">        <span class="keyword">let</span> game = <span class="type">SnakesAndLadders</span>()</span><br><span class="line">        game.play()</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> d12 = <span class="type">Dice</span>(sides: <span class="number">12</span>, generator: <span class="type">LinearCongruentialGenerator</span>())</span><br><span class="line">        <span class="built_in">println</span>(d12.asText())</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//extension SnakesAndLadders: TextRepresentable</span></span><br><span class="line">        <span class="built_in">println</span>(game.asText())</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//extension Hamster: TextRepresentable &#123;&#125;</span></span><br><span class="line">        <span class="keyword">let</span> simonTheHamster = <span class="type">Hamster</span>(name: <span class="string">"Simon"</span>)</span><br><span class="line">        <span class="keyword">let</span> somethingTextRepresentable: <span class="type">TextRepresentable</span> = simonTheHamster</span><br><span class="line">        <span class="built_in">println</span>(somethingTextRepresentable.asText())</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//协议类型的集合，Collections of Protocol Types</span></span><br><span class="line">        <span class="keyword">let</span> things: [<span class="type">TextRepresentable</span>] = [game, d12, simonTheHamster]</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"things = \(things)"</span>)</span><br><span class="line">        <span class="keyword">for</span> thing <span class="keyword">in</span> things&#123;</span><br><span class="line">            <span class="built_in">println</span>(<span class="string">"thing.asText() = \(thing.asText())"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//extension SnakesAndLadders: PrettyTextRepresentable</span></span><br><span class="line">        <span class="built_in">println</span>(game.asPrettyText())</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//协议组合</span></span><br><span class="line">        <span class="keyword">let</span> birthdayPerson = <span class="type">NewPerson</span>(name: <span class="string">"Malcolm"</span>, age: <span class="number">21</span>)</span><br><span class="line">        wishHappyBirthday(birthdayPerson)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//协议的一致性检查</span></span><br><span class="line">        <span class="keyword">let</span> objects: [<span class="type">AnyObject</span>] = [</span><br><span class="line">            <span class="comment">//园 半径</span></span><br><span class="line">            <span class="type">Circle</span>(radius: <span class="number">2.0</span>),</span><br><span class="line">            <span class="type">Country</span>(area: <span class="number">243_610</span>),</span><br><span class="line">            <span class="type">Animal</span>(legs: <span class="number">4</span>)</span><br><span class="line">        ]</span><br><span class="line">        <span class="keyword">for</span> object <span class="keyword">in</span> objects&#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> objectWithArea = object <span class="keyword">as</span>? <span class="type">HasArea</span>&#123;</span><br><span class="line">                <span class="built_in">println</span>(<span class="string">"Area is \(objectWithArea.area)"</span>)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">println</span>(<span class="string">"Something that doesn't have an area"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//可选协议，Optional Protocol Requirements</span></span><br><span class="line">        <span class="keyword">var</span> counter = <span class="type">Counter</span>()</span><br><span class="line">        counter.dataSource = <span class="type">ThreeSource</span>()</span><br><span class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...<span class="number">4</span>&#123;</span><br><span class="line">            counter.increment()<span class="comment">//增量</span></span><br><span class="line">            <span class="built_in">println</span>(counter.<span class="built_in">count</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        counter.<span class="built_in">count</span> = -<span class="number">4</span></span><br><span class="line">        counter.dataSource = <span class="type">TowardsZeroSource</span>()</span><br><span class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span>&#123;</span><br><span class="line">            counter.increment()<span class="comment">//增量</span></span><br><span class="line">            <span class="built_in">println</span>(counter.<span class="built_in">count</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> mustBesettable: <span class="type">Int</span> &#123;<span class="keyword">get</span> <span class="keyword">set</span>&#125;<span class="comment">//通过编写可设置和读取属性</span></span><br><span class="line">    <span class="keyword">var</span> doesNotNeedToBeSettable: <span class="type">Int</span> &#123;<span class="keyword">get</span>&#125;<span class="comment">//get表示只读属性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">AnotherProtocol</span> </span>&#123;</span><br><span class="line">    <span class="comment">//即使type property要求与static关键字前缀时实现struct或者enum</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">somTypeProperty</span>: <span class="title">Int</span> </span>&#123;<span class="keyword">get</span> <span class="keyword">set</span>&#125; <span class="comment">//类属性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这个FullyNamed协议定义了完全限定的名字。它没有指定什么样的事情必须做。</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">FullyNamed</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fullName : <span class="type">String</span> &#123;<span class="keyword">get</span>&#125; <span class="comment">//这是一个简单只读的 实例属性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//它唯一指定必须能够提供一个完整的本身明名称。</span></span><br><span class="line"><span class="comment">//它指定这一个要求，指出任何FullyNamed类型必须有一个可以获得的实例属性fullName</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span>: <span class="title">FullyNamed</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fullName: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Starship</span>: <span class="title">FullyNamed</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">prefix</span>: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span> (name: <span class="type">String</span>, <span class="keyword">prefix</span>: <span class="type">String</span>? = <span class="literal">nil</span>)&#123;</span><br><span class="line">        <span class="keyword">self</span>.name   = name</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">prefix</span> = <span class="keyword">prefix</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> fullName: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="comment">//如果不为空，则prefix+空格+name，否则发挥nil</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">prefix</span> != <span class="literal">nil</span> ? <span class="keyword">prefix</span>! + <span class="string">" "</span> : <span class="string">""</span>) + name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法要求</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeNewProtocol</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() //类方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title">protocol</span> <span class="title">RandomNumberGenerator</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">random</span><span class="params">()</span></span> -&gt; <span class="type">Double</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinearCongruentialGenerator</span>: <span class="title">RandomNumberGenerator</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> lastRandom  = <span class="number">42.0</span></span><br><span class="line">    <span class="keyword">let</span> m = <span class="number">13968.0</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">3877.0</span></span><br><span class="line">    <span class="keyword">let</span> <span class="built_in">c</span> = <span class="number">29573.0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">random</span><span class="params">()</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        lastRandom = ((lastRandom * a + <span class="built_in">c</span>) % m)</span><br><span class="line">        <span class="keyword">return</span> lastRandom / m</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//突变方法，结构体or枚举，Mutating Method Requirements</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Togglable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">toggle</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">OnOffSwitch</span>: <span class="title">Togglable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Off</span>,<span class="type">On</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">toggle</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="type">Off</span>:</span><br><span class="line">            <span class="keyword">self</span> = <span class="type">On</span></span><br><span class="line">        <span class="keyword">case</span> <span class="type">On</span>:</span><br><span class="line">            <span class="keyword">self</span> = <span class="type">Off</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//协议类型，Protocols as Types</span></span><br><span class="line"><span class="comment">//现在除了基本类型，enum，struct，class，我们又多了一种类型，协议。</span></span><br><span class="line"><span class="comment">//协议可以作为函数的参数，返回值，常量，变量等</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dice</span></span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sides: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> generator: <span class="type">RandomNumberGenerator</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span> (sides: <span class="type">Int</span>, generator: <span class="type">RandomNumberGenerator</span>)&#123;</span><br><span class="line">        <span class="keyword">self</span>.sides = sides</span><br><span class="line">        <span class="keyword">self</span>.generator = generator</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//掷骰子方法</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">roll</span><span class="params">()</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Int</span>(generator.random() * <span class="type">Double</span>(sides)) + <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//代理，Delegation</span></span><br><span class="line"><span class="comment">//DiceGame协议是可以通过任何涉及骰子的游戏的一个协议</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">DiceGame</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dice: <span class="type">Dice</span>&#123;<span class="keyword">get</span>&#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">play</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">DiceGameDelegate</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">gameDidStart</span><span class="params">(game: DiceGame)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">game</span><span class="params">(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">gameDidEnd</span><span class="params">(game: DiceGame)</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SnakesAndLadders</span>: <span class="title">DiceGame</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> finalSquare = <span class="number">25</span></span><br><span class="line">    <span class="keyword">let</span> dice = <span class="type">Dice</span>(sides: <span class="number">6</span>, generator: <span class="type">LinearCongruentialGenerator</span>())</span><br><span class="line">    <span class="keyword">var</span> square = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> board: [<span class="type">Int</span>]</span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="comment">//构造一个”计数“元素的数组</span></span><br><span class="line">        board = [<span class="type">Int</span>](<span class="built_in">count</span>: finalSquare + <span class="number">1</span>, repeatedValue: <span class="number">0</span>)</span><br><span class="line">        board[<span class="number">03</span>] = +<span class="number">08</span>; board[<span class="number">06</span>] = +<span class="number">11</span>; board[<span class="number">09</span>] = +<span class="number">09</span>; board[<span class="number">10</span>] = +<span class="number">02</span></span><br><span class="line">        board[<span class="number">14</span>] = -<span class="number">10</span>; board[<span class="number">19</span>] = -<span class="number">11</span>; board[<span class="number">22</span>] = -<span class="number">02</span>; board[<span class="number">24</span>] = -<span class="number">08</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> delegate: <span class="type">DiceGameDelegate</span>?</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">play</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">//平方</span></span><br><span class="line">        square = <span class="number">0</span></span><br><span class="line">        delegate?.gameDidStart(<span class="keyword">self</span>)</span><br><span class="line">        gameLoop: <span class="keyword">while</span> square != finalSquare &#123;</span><br><span class="line">            <span class="comment">//掷骰子</span></span><br><span class="line">            <span class="keyword">let</span> diceRoll = dice.roll()</span><br><span class="line">            delegate?.game(<span class="keyword">self</span>, didStartNewTurnWithDiceRoll: diceRoll)</span><br><span class="line">            <span class="keyword">switch</span> square + diceRoll &#123;</span><br><span class="line">            <span class="keyword">case</span> finalSquare:</span><br><span class="line">                <span class="keyword">break</span> gameLoop</span><br><span class="line">            <span class="keyword">case</span> <span class="keyword">let</span> newSquare <span class="keyword">where</span> newSquare &gt; finalSquare:</span><br><span class="line">                <span class="keyword">continue</span> gameLoop</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                square += diceRoll</span><br><span class="line">                square += board[square]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        delegate?.gameDidEnd(<span class="keyword">self</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DiceGameTracker</span>: <span class="title">DiceGameDelegate</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> numberOfTurns = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">gameDidStart</span><span class="params">(game: DiceGame)</span></span> &#123;</span><br><span class="line">        numberOfTurns = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> game <span class="keyword">is</span> <span class="type">SnakesAndLadders</span> &#123;</span><br><span class="line">             <span class="built_in">println</span>(<span class="string">"Started a new game of Snakes and Ladders"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"The game is using a \(game.dice.sides)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">game</span><span class="params">(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int)</span></span> &#123;</span><br><span class="line">        ++numberOfTurns</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"Rolled a \(diceRoll)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">gameDidEnd</span><span class="params">(game: DiceGame)</span></span> &#123;</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"The game lasted for \(numberOfTurns) turns"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加协议的一致性扩展，Adding Protocol Conformance with an Extension</span></span><br><span class="line"><span class="comment">//文本表示字符</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">TextRepresentable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">asText</span><span class="params">()</span></span> -&gt; <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//从早些时候的 Dice类 可以扩展采纳并符合 TextRepresentable</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Dice</span>: <span class="title">TextRepresentable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">asText</span><span class="params">()</span></span> -&gt; <span class="type">String</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"A \(sides) -side dice"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SnakesAndLadders</span>: <span class="title">TextRepresentable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">asText</span><span class="params">()</span></span> -&gt; <span class="type">String</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"A game of Snakes and Ladders with \(finalSquare) squares"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果一个类型已经符合协议的所有的需求,但尚未表示采用协议,您可以采用协议与空扩展</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Hamster</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">asText</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"A hamster named \(name)"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Hamster</span>: <span class="title">TextRepresentable</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">协议继承，Protocol Inheritance</span><br><span class="line">*/</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">InheritingProtocol</span>: <span class="title">SomeProtocol</span>, <span class="title">AnotherProtocol</span> </span>&#123;</span><br><span class="line">    <span class="comment">//这里定义协议</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">PrettyTextRepresentable</span>: <span class="title">TextRepresentable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">asPrettyText</span><span class="params">()</span></span> -&gt; <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//SnakesAndLadders类可以扩展采纳并符合PrettyTextRepresentable:</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SnakesAndLadders</span>: <span class="title">PrettyTextRepresentable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">asPrettyText</span><span class="params">()</span></span> -&gt; <span class="type">String</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> output = asText() + <span class="string">":\n"</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...finalSquare&#123;</span><br><span class="line">            <span class="keyword">switch</span> board[index] &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="keyword">let</span> ladder <span class="keyword">where</span> ladder &gt; <span class="number">0</span>:</span><br><span class="line">                output += <span class="string">"▲ "</span></span><br><span class="line">            <span class="keyword">case</span> <span class="keyword">let</span> snake <span class="keyword">where</span> snake &lt; <span class="number">0</span>:</span><br><span class="line">                output += <span class="string">"▼ "</span></span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                output += <span class="string">"○ "</span></span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//协议组合，Protocol Composition</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Named</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span> &#123;<span class="keyword">get</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Aged</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span> &#123;<span class="keyword">get</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NewPerson</span>: <span class="title">Named</span>, <span class="title">Aged</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wishHappyBirthday</span><span class="params">(celebrator : <span class="keyword">protocol</span>&lt;Named,Aged&gt;)</span></span>&#123;</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"Happy birthday \(celebrator.name) - you're \(celebrator.age)!"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//协议的一致性检查，Checking for Protocol Conformance</span></span><br><span class="line"><span class="meta">@objc</span> <span class="class"><span class="keyword">protocol</span> <span class="title">HasArea</span></span>&#123; <span class="comment">//objc 说明这个协议是可选的</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123;<span class="keyword">get</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span>: <span class="title">HasArea</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> pi = <span class="number">3.1415927</span></span><br><span class="line">    <span class="keyword">var</span> radius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span> &#123; <span class="keyword">return</span> pi * radius * radius&#125;</span><br><span class="line">    <span class="keyword">init</span> (radius: <span class="type">Double</span>)&#123;</span><br><span class="line">        <span class="keyword">self</span>.radius = radius</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Country</span>: <span class="title">HasArea</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> area: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">init</span> (area: <span class="type">Double</span>)&#123; <span class="keyword">self</span>.area = area &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> legs: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">init</span> (legs: <span class="type">Int</span>) &#123; <span class="keyword">self</span>.legs = legs&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//可选协议，Optional Protocol Requirements</span></span><br><span class="line"><span class="meta">@objc</span> <span class="class"><span class="keyword">protocol</span> <span class="title">CounterDataSource</span> </span>&#123;</span><br><span class="line">    <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">incrementForCount</span><span class="params">(<span class="built_in">count</span>: Int)</span></span> -&gt; <span class="type">Int</span></span><br><span class="line">    <span class="keyword">optional</span> <span class="keyword">var</span> fixedIncrement: <span class="type">Int</span> &#123;<span class="keyword">get</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@objc</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> dataSource: <span class="type">CounterDataSource</span>?</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> amount = dataSource?.incrementForCount?(<span class="built_in">count</span>)&#123;</span><br><span class="line">            <span class="built_in">count</span> += amount</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">let</span> amount = dataSource?.fixedIncrement? &#123;</span><br><span class="line">            <span class="built_in">count</span> += amount</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreeSource</span>: <span class="title">CounterDataSource</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> fixedIncrement = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TowardsZeroSource</span>: <span class="title">CounterDataSource</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">incrementForCount</span><span class="params">(<span class="built_in">count</span>: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> &lt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://itunes.apple.com/cn/book/swift-programming-language/id881256329?mt=11" target="_blank" rel="external">The Swift Programming Language</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/08/09/2014-8-9-Swift-Extensions/" rel="next" title="《浅入浅出Swift》Extensions 扩展">
+                <i class="fa fa-chevron-left"></i> 《浅入浅出Swift》Extensions 扩展
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/08/12/2014-8-12-Swift-Generics/" rel="prev" title="《浅入浅出Swift》Generics 泛型">
+                《浅入浅出Swift》Generics 泛型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_tsina">微博</a>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_ydnote">有道云</a>
+<a class="jiathis_button_evernote">印象笔记</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTYyMS8xMjE1Nw"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">160</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/iceesj" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:iceesj@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/iceesj" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Protocols"><span class="nav-number">1.</span> <span class="nav-text">Protocols</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number"></span> <span class="nav-text">Reference</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iceesj</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">全站共36.2k字</span>
+</div>
+<span>/</span>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65637782";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JgftWOOfB35bBaoywC63VdLP-gzGzoHsz", "s4QuH5SsLNH2FIjt0CQYmRk2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
