@@ -299,6 +299,239 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/14/2014-7-14-Swift-ClassesAndStructures/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CSJ记录点滴">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/07/14/2014-7-14-Swift-ClassesAndStructures/" itemprop="url">《浅入浅出Swift》Classes And Structures 类和结构体</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-14T22:50:00+08:00">
+                2014-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/Classes/" itemprop="url" rel="index">
+                    <span itemprop="name">Classes</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/Classes/Structures/" itemprop="url" rel="index">
+                    <span itemprop="name">Structures</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/Classes/Structures/类/" itemprop="url" rel="index">
+                    <span itemprop="name">类</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/Classes/Structures/类/结构体/" itemprop="url" rel="index">
+                    <span itemprop="name">结构体</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2014/07/14/2014-7-14-Swift-ClassesAndStructures/" class="leancloud_visitors" data-flag-title="《浅入浅出Swift》Classes And Structures 类和结构体">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  926 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>####Classes And Structures</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//不会像c++那样用struct取代class关键字</span></span><br><span class="line">        <span class="comment">//swift可以把class和结构体定义在一个.swift里，然后在其他文件里直接用就可以了</span></span><br><span class="line">        <span class="comment">//不需要include，也不需要import</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//1允许一个类继承另一个类的特点</span></span><br><span class="line">        <span class="comment">//2允许在运行类实例时，检查和解释类型</span></span><br><span class="line">        <span class="comment">//3使一个类的实例能够释放任何资源分配</span></span><br><span class="line">        <span class="comment">//4引用计数允许多个引用一个类实例</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//定义语法，definition syntax</span></span><br><span class="line">        <span class="comment">//类和结构体定义首字母大写</span></span><br><span class="line">        class SomeClass&#123;</span><br><span class="line">            var typeName = <span class="string">"class"</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">struct</span> SomeStructure &#123;</span><br><span class="line">            var typeName = <span class="string">"struct"</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        var myFirstClass = SomeClass(typeName:"")//类不行</span></span><br><span class="line">        var myFirstClass = SomeClass()<span class="comment">//定义一个变量，它是SomeClass类型的实例</span></span><br><span class="line">        println(myFirstClass.typeName)<span class="comment">//访问这个实例的成员属性</span></span><br><span class="line">        <span class="comment">//结构体有特别之处，在初始化的时候，可以把成员的值直接写在参数里面</span></span><br><span class="line">        var myFirstStr = SomeStructure(typeName:<span class="string">"my first struct"</span>)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">struct</span> Resolution&#123;</span><br><span class="line">            var width = <span class="number">0</span></span><br><span class="line">            var height = <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        class VideoMode &#123;</span><br><span class="line">            var resolution = Resolution()<span class="comment">//定义变量resolution，他是Resolution类型的实例</span></span><br><span class="line">            var interlaced = <span class="literal">false</span></span><br><span class="line">            var frameRate = <span class="number">0.0</span></span><br><span class="line">            var name : String = <span class="string">""</span></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//类和结构实例，Class and Structure Instances</span></span><br><span class="line">        let someResolution = Resolution()</span><br><span class="line">        let someVideoMode = VideoMode()</span><br><span class="line">        <span class="comment">//访问属性，Accessing Properties</span></span><br><span class="line">        println(<span class="string">"The width of someResolution is \(someResolution.width)"</span>)</span><br><span class="line">        println(<span class="string">"The width of someVideoMode is \(someVideoMode.resolution.width)"</span>)</span><br><span class="line">        <span class="comment">//点语法</span></span><br><span class="line">        someVideoMode.resolution.width = <span class="number">1280</span></span><br><span class="line">        println(<span class="string">"The width of someVideoMode is now \(someVideoMode.resolution.width)"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//为结构类型初始值设定项，Memberwise Initializers for Structure Types</span></span><br><span class="line">        let vga = Resolution(width: <span class="number">650</span>, height: <span class="number">480</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//结构和枚举值类型，Structures and Enumerations Are Value Types</span></span><br><span class="line">        let hd = Resolution(width: <span class="number">1920</span>, height: <span class="number">1080</span>)</span><br><span class="line">        var cinema = hd</span><br><span class="line">        cinema.width = <span class="number">2048</span></span><br><span class="line">        println(<span class="string">"cinema.width now = \(cinema.width)"</span>)</span><br><span class="line">        <span class="comment">//However, the width property of the original hd instance still has the old value of 1920:</span></span><br><span class="line">        println(<span class="string">"hd.width now = \(hd.width)"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//同样的行为也适用于枚举，The same behavior applies to enumerations:</span></span><br><span class="line">        <span class="keyword">enum</span> CompassPoint&#123;</span><br><span class="line">            <span class="keyword">case</span> North,South,East,West</span><br><span class="line">        &#125;</span><br><span class="line">        var currentDirection = CompassPoint.West</span><br><span class="line">        let rememberedDirection = currentDirection</span><br><span class="line">        currentDirection = .East</span><br><span class="line">        <span class="keyword">if</span> rememberedDirection == .West &#123;</span><br><span class="line">            println(<span class="string">"The remembered direction is still .West"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//类是引用类型，Classes Are Reference Types</span></span><br><span class="line">        <span class="comment">//这个例子声明一个新的常数称为tenEighty并集参考VideoMode类的一个新实例</span></span><br><span class="line">        <span class="comment">//视频模式分配一份高清分辨为1920到1080之前，它是交错的，名称是“1080i”，最后它被设置成25.0帧每秒的帧速率</span></span><br><span class="line">        let tenEighty = VideoMode()</span><br><span class="line">        tenEighty.resolution = hd</span><br><span class="line">        tenEighty.interlaced = <span class="literal">true</span></span><br><span class="line">        tenEighty.name = <span class="string">"1080i"</span></span><br><span class="line">        tenEighty.frameRate = <span class="number">25.0</span></span><br><span class="line">        </span><br><span class="line">        let alsoTenEighty = tenEighty</span><br><span class="line">        alsoTenEighty.frameRate = <span class="number">30.0</span></span><br><span class="line">        println(<span class="string">"now frameRate = \(alsoTenEighty.frameRate)"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//标识操作符，Identity Operators</span></span><br><span class="line">        <span class="comment">//用来判断两个变量或常量，是否同时引用同一个类的实例，相同的 === 不相同的 !==</span></span><br><span class="line">        <span class="keyword">if</span> tenEighty === alsoTenEighty&#123;</span><br><span class="line">            println(<span class="string">"tenEighty and alsoTenEighty refer to the same VideoMode instance"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//Array和Dictionar都是Struct</span></span><br><span class="line">        var myDictionary = [<span class="number">1</span>:<span class="string">"1"</span>,<span class="number">2</span>:<span class="string">"2"</span>,<span class="number">3</span>:<span class="string">"3"</span>]</span><br><span class="line">        var myDictionaryCopy = myDictionary;</span><br><span class="line">        </span><br><span class="line">        myDictionary[<span class="number">1</span>] = <span class="string">"8"</span></span><br><span class="line">        println(myDictionaryCopy[<span class="number">1</span>])<span class="comment">// ＝ 1</span></span><br><span class="line">        </span><br><span class="line">        var myArray = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">        var myArrayCopy = myArray</span><br><span class="line">        myArray[<span class="number">1</span>] = <span class="number">8</span></span><br><span class="line">        println(myArray[<span class="number">1</span>]) <span class="comment">//得到结果是8</span></span><br><span class="line">        println(myArray === myArrayCopy)<span class="comment">//false</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//swift对Array做了优化，只有在必要时，才会分配一份拷贝</span></span><br><span class="line">        <span class="comment">//Array只有在数组长度变化的时候才拷贝</span></span><br><span class="line">        <span class="comment">//1 unshare() arr变 newArr不变 Xcode6 beta1,2</span></span><br><span class="line">        <span class="comment">/*</span><br><span class="line">        var arr = [0,0,0]</span><br><span class="line">        var newArr = arr</span><br><span class="line">        arr.unshare()</span><br><span class="line">        arr[0] = 1</span><br><span class="line">        arr       //[1, 0, 0]  </span><br><span class="line">        newArr    //[0, 0, 0]</span><br><span class="line">        */</span></span><br><span class="line">        <span class="comment">//2 copy() 直接拷贝 arr变，newArr不变 Xcode6 beta1,2</span></span><br><span class="line">        <span class="comment">/*</span><br><span class="line">        var arr = [0,0,0]</span><br><span class="line">        var copiedArr = arr.copy()</span><br><span class="line">        arr[0] = 1</span><br><span class="line">        arr       //[1, 0, 0]</span><br><span class="line">        copiedArr //[0, 0, 0]</span><br><span class="line">        */</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//值类型特点</span></span><br><span class="line">        var arr = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line"><span class="comment">//        arr[0]=1//arr = [1,0,0], newArr =[1,0,0]</span></span><br><span class="line">        var newArr = arr<span class="comment">//Xcode6 beta3 newArr = [0,0,0], beta1,2 newArr = [1,0,0]</span></span><br><span class="line">        arr[<span class="number">0</span>]=<span class="number">1</span><span class="comment">//arr = [1,0,0], newArr =[0,0,0]</span></span><br><span class="line">        println(arr)</span><br><span class="line">        println(newArr)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/07/14/2014-7-14-Swift-ClassesAndStructures/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/12/2014-7-12-Swift-Enumerations/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2207,206 +2440,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/06/02/2014-6-02-Chapter-14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CSJ记录点滴">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/06/02/2014-6-02-Chapter-14/" itemprop="url">iOS7 Programming Cookbook 第十四章学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-06-02T11:00:00+08:00">
-                2014-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NSFileManager/" itemprop="url" rel="index">
-                    <span itemprop="name">NSFileManager</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NSFileManager/createDirectoryAtPath/" itemprop="url" rel="index">
-                    <span itemprop="name">createDirectoryAtPath</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2014/06/02/2014-6-02-Chapter-14/" class="leancloud_visitors" data-flag-title="iOS7 Programming Cookbook 第十四章学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  141 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>####Creating Folders on Disk</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions&#123;</span><br><span class="line">    <span class="comment">//执行许多通用文件系统操作并隔离应用程序与底层文件系统</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [[<span class="built_in">NSFileManager</span> alloc] init];</span><br><span class="line">    <span class="comment">//返回当前用户临时目录的路径。</span></span><br><span class="line">    <span class="built_in">NSString</span> *tempDir = <span class="built_in">NSTemporaryDirectory</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *imagesDir = [tempDir stringByAppendingPathComponent:<span class="string">@"images"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> ([fileManager createDirectoryAtPath:imagesDir withIntermediateDirectories:<span class="literal">YES</span> attributes:<span class="literal">nil</span> error:&amp;error])&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"成功创建目录."</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"创建目录失败 Error = %@"</span>, error);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc]</span><br><span class="line">                   initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line">    <span class="keyword">self</span>.window.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2014/06/02/2014-6-02-Chapter-14/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2461,7 +2494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2472,7 +2505,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">160</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2483,7 +2516,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2554,7 +2587,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共36.2k字</span>
+  <span class="post-count">全站共38.1k字</span>
 </div>
 <span>/</span>
 <div class="powered-by">

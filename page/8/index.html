@@ -299,6 +299,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/29/2013-12-29-Displaying-Progress-with-UIProgressView/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CSJ记录点滴">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2013/12/29/2013-12-29-Displaying-Progress-with-UIProgressView/" itemprop="url">iOS7 UIProgressView</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-12-29T17:20:00+08:00">
+                2013-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UIProgressView/" itemprop="url" rel="index">
+                    <span itemprop="name">UIProgressView</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2013/12/29/2013-12-29-Displaying-Progress-with-UIProgressView/" class="leancloud_visitors" data-flag-title="iOS7 UIProgressView">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  119 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>####iOS7 Programming Cookbook 第一章学习笔记 UIProgressView</p>
+<p>####Displaying Progress with UIProgressView</p>
+<p>#####ViewController.m<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"><span class="comment">//private</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIProgressView</span> *progressView;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad&#123;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">//创建progressView</span></span><br><span class="line">    <span class="comment">//UIProgressViewStyleBar用于工具栏的风格</span></span><br><span class="line">    <span class="keyword">self</span>.progressView = [[<span class="built_in">UIProgressView</span> alloc]</span><br><span class="line">                         initWithProgressViewStyle:<span class="built_in">UIProgressViewStyleBar</span>];</span><br><span class="line">    <span class="keyword">self</span>.progressView.center = <span class="keyword">self</span>.view.center;</span><br><span class="line">    <span class="comment">//进度</span></span><br><span class="line">    <span class="keyword">self</span>.progressView.progress = <span class="number">20.0</span>f / <span class="number">100.0</span>f;</span><br><span class="line">    <span class="comment">//显示总进度条</span></span><br><span class="line">    <span class="keyword">self</span>.progressView.backgroundColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">    <span class="comment">//添加到view</span></span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.progressView];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2013/12/29/2013-12-29-Displaying-Progress-with-UIProgressView/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/29/2013-12-29-Displaying-Popovers-with-UIPopoverController/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1999,197 +2189,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/23/2013-12-23-Chapter-1-Introduction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CSJ记录点滴">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/12/23/2013-12-23-Chapter-1-Introduction/" itemprop="url">iOS7 Introduction</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-12-23T23:00:00+08:00">
-                2013-12-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Introduction/" itemprop="url" rel="index">
-                    <span itemprop="name">Introduction</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2013/12/23/2013-12-23-Chapter-1-Introduction/" class="leancloud_visitors" data-flag-title="iOS7 Introduction">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  294 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>####iOS7 Programming Cookbook 第一章学习笔记 Introduction</p>
-<p>#####Demo:Chapter 1-Introduction</p>
-<p>######AppDelegate.m</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions&#123;</span><br><span class="line">    <span class="comment">//声明一组，可变无序对象的集合</span></span><br><span class="line">    <span class="built_in">NSCountedSet</span> *setOfNumbers = [<span class="built_in">NSCountedSet</span> setWithObjects:</span><br><span class="line">                                  @<span class="number">10</span>, @<span class="number">20</span>, @<span class="number">10</span>, @<span class="number">10</span>, @<span class="number">30</span>, <span class="literal">nil</span>];</span><br><span class="line">    <span class="comment">//添加20</span></span><br><span class="line">    [setOfNumbers addObject:@<span class="number">20</span>];</span><br><span class="line">    <span class="comment">//移除10</span></span><br><span class="line">    [setOfNumbers removeObject:@<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Count for object @10 = %lu"</span>,(<span class="keyword">unsigned</span> <span class="keyword">long</span>)[setOfNumbers countForObject:@<span class="number">10</span>]);</span><br><span class="line">    <span class="comment">//2013-12-23 21:44:41.339 Chapter 1-Introduction[1683:70b] Count for object @10 = 2</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Count for object @20 = %lu"</span>,(<span class="keyword">unsigned</span> <span class="keyword">long</span>)[setOfNumbers countForObject:@<span class="number">20</span>]);</span><br><span class="line">    <span class="comment">//2013-12-23 21:44:41.339 Chapter 1-Introduction[1683:70b] Count for object @20 = 2</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc]initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line">    <span class="keyword">self</span>.window.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2013/12/23/2013-12-23-Chapter-1-Introduction/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2244,7 +2243,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2255,7 +2254,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">160</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2266,7 +2265,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2337,7 +2336,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共36.2k字</span>
+  <span class="post-count">全站共38.1k字</span>
 </div>
 <span>/</span>
 <div class="powered-by">
